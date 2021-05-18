@@ -14,14 +14,19 @@ export class UserService {
         return users;
     }
     // Get a single user
-    async getUser(userID): Promise<User> {
-        const user = await this.userModel.findById(userID).exec();
+    async getUser(username): Promise<User> {
+        //const user = await this.userModel.findById(userID).exec();
+        const user= await this.userModel.findOne({username: username}).exec();
         return user;
     }
     // post a single user
     async addUser(createUserDTO: CreateUserDTO): Promise<User> {
-        const newUser = await new this.userModel(createUserDTO);
-        return newUser.save();
+        let user = await this.getUser(createUserDTO.username);
+        if(!user){
+            const newUser = await new this.userModel(createUserDTO);
+            return newUser.save();
+        }
+        return null;
     }
     // Edit user details
     async updateUser(userID, createUserDTO: CreateUserDTO): Promise<User> {

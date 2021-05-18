@@ -1,6 +1,9 @@
-import { Controller, Get, Res, HttpStatus, Post, Body, Put, Query, NotFoundException, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Res, HttpStatus, Post, Body, Put, Query, NotFoundException, Delete, Param, Req } from '@nestjs/common';
 import {UserService} from './user.service';
 import {CreateUserDTO} from './dto/create-user.dto';
+
+const bcrypt= require('bcrypt');
+const saltRounds= 10;
 
 @Controller('user')
 export class UserController {
@@ -9,7 +12,12 @@ export class UserController {
     //add a user
     @Post('user')
     async addUser(@Res() res, @Body() createUserDTO: CreateUserDTO) {
+        const plain_password= createUserDTO.password;
+        await bcrypt.hash(plain_password, saltRounds).then(function(hash){
+            createUserDTO.password = hash;
+        });
         const user = await this.userService.addUser(createUserDTO);
+        if (!user) throw new NotFoundException('Username already in use!');
         return res.status(HttpStatus.OK).json({
             message: "User has been created successfully",
             user
@@ -24,9 +32,9 @@ export class UserController {
     }
 
     // Fetch a particular user using ID
-    @Get('user/:userID')
-    async getUser(@Res() res, @Param('userID') userID) {
-        const user = await this.userService.getUser(userID);
+    @Get('user/:username')
+    async getUser(@Res() res, @Param('username') username) {
+        const user = await this.userService.getUser(username);
         if (!user) throw new NotFoundException('User does not exist!');
         return res.status(HttpStatus.OK).json(user);
     }
@@ -51,6 +59,24 @@ export class UserController {
             message: 'User has been deleted',
             user
         })
+    }
+
+    //LOGIN
+    @Post('login')
+    async login(@Res() res, @Body() credentials: {username: string, password: string}) {
+        const user = await this.userService.getUser(credentials.username);
+        if (!user) throw new NotFoundException('Username does not exists!');
+        var reslt;
+        await bcrypt.compare(credentials.password, user.password).then(function(result){
+            reslt=result
+        });
+        if (reslt==false) throw new NotFoundException('Invalid Password');
+        else{
+            return res.status(HttpStatus.OK).json({
+            message: "User has been logged successfully",
+            user: user.username
+            })
+        }
     }
 
 }
