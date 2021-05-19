@@ -4,6 +4,6 @@ export declare class CreateUserDTO {
     readonly first_name: string;
     readonly last_name: string;
     readonly birth: Date;
-    readonly img: string;
+    img: string;
     readonly created_at: Date;
 }

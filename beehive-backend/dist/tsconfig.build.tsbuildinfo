@@ -1537,8 +1537,8 @@
         "affectsGlobalScope": false
       },
       "../src/user/dto/create-user.dto.ts": {
-        "version": "c2169ebf6837323a194b41eb4b7270fcd98758818ad273688aaabf9cc0036922",
-        "signature": "848f04e6e4009465c97ae015937765190e1c1e4de90b6b6603ca527ba28ed9ae",
+        "version": "7582414a9b67dfc4077abe55c5b955c63565319c0892627f042a1d02fd87c311",
+        "signature": "c4d76f87e98b6e81260b6344739ec5b5deffecb268dc756ac52a59ae7bef0134",
         "affectsGlobalScope": false
       },
       "../src/user/user.service.ts": {
@@ -1547,7 +1547,7 @@
         "affectsGlobalScope": false
       },
       "../src/user/user.controller.ts": {
-        "version": "66f19d7ecafe12eebe04d25db7fcb6c2b9468f720bc833f917e49816aa418ef9",
+        "version": "79f5e0f95205886e767845b63780a5d33fdf7b09f5cfde516101d9c5e83dfcca",
         "signature": "87fa729572c9e0feeb4fdd509b48616f092bceaccce9f2d8d8f59b09b38023d2",
         "affectsGlobalScope": false
       },
@@ -1561,8 +1561,38 @@
         "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329",
         "affectsGlobalScope": false
       },
+      "../src/events/interfaces/events.interface.ts": {
+        "version": "624e68ebe17381026a2239804fcc1c150e5b0cf1c69b95073c5d5867af4b28fb",
+        "signature": "6e625fc13a2d37501548c726f67bfa734055a2abce051a9b34f31ed933e7661f",
+        "affectsGlobalScope": false
+      },
+      "../src/events/dto/create-events.dto.ts": {
+        "version": "882a71e2361c18841672b4053d655972f86235e844c79f6893695ba4402d93db",
+        "signature": "9b25688874efd57aa579fa67c702bca75966be8a61e71805efc630400a2aeb21",
+        "affectsGlobalScope": false
+      },
+      "../src/events/events.service.ts": {
+        "version": "09573be488d71efe7a21c586e89d6ac20fa83da88558d1d0ad5fdf064a3d5e27",
+        "signature": "306885f78f8ca0d91c466eccdbc313cc7396607c5074a16badb5e0653ea7e013",
+        "affectsGlobalScope": false
+      },
+      "../src/events/events.controller.ts": {
+        "version": "1e90ea0f06bc04b63ce501c8b8a134e7f8139a9edd7a75cd8384748510a8aaed",
+        "signature": "10eba9730cff1db9dc1e7ae6f1fe5ae4d1788b1124db648c68f090ecb1c21af9",
+        "affectsGlobalScope": false
+      },
+      "../src/events/schemas/events.schema.ts": {
+        "version": "509d8eb182c2a9828ebbba540b781511bead47cca718f832db0db47574ee7e00",
+        "signature": "c67be0069cfef8880d27cf81ca7e4ac926d6294125a2d4f27ff5000c768e5589",
+        "affectsGlobalScope": false
+      },
+      "../src/events/events.module.ts": {
+        "version": "b06b91877a5ccf2999046fbbf2cafd022047ccffed23c698b93effeb7fcc5182",
+        "signature": "354b5fa59b2bfccc0758d0835f41034bc595b84e693080e112a292ba0556edbd",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "592225af207786ee77cb4ff9b66ffc5840a9e6ee2da50ad5fe6e375f7674a9d4",
+        "version": "0d02426a13bc0dde96f753c55afa80707bb8ce5fbd49d52dcb029aac8731edee",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -3396,10 +3426,36 @@
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../src/app.controller.ts",
         "../src/app.service.ts",
+        "../src/events/events.module.ts",
         "../src/user/user.module.ts"
       ],
       "../src/app.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
+      ],
+      "../src/events/events.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/events/dto/create-events.dto.ts",
+        "../src/events/events.service.ts"
+      ],
+      "../src/events/events.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/mongoose/index.d.ts",
+        "../src/events/events.controller.ts",
+        "../src/events/events.service.ts",
+        "../src/events/schemas/events.schema.ts"
+      ],
+      "../src/events/events.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/mongoose/index.d.ts",
+        "../node_modules/mongoose/index.d.ts",
+        "../src/events/dto/create-events.dto.ts",
+        "../src/events/interfaces/events.interface.ts"
+      ],
+      "../src/events/interfaces/events.interface.ts": [
+        "../node_modules/mongoose/index.d.ts"
+      ],
+      "../src/events/schemas/events.schema.ts": [
+        "../node_modules/mongoose/index.d.ts"
       ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",
@@ -4765,6 +4821,21 @@
       ],
       "../src/app.controller.ts": [
         "../src/app.service.ts"
+      ],
+      "../src/events/events.controller.ts": [
+        "../src/events/dto/create-events.dto.ts",
+        "../src/events/events.service.ts"
+      ],
+      "../src/events/events.service.ts": [
+        "../node_modules/mongoose/index.d.ts",
+        "../src/events/dto/create-events.dto.ts",
+        "../src/events/interfaces/events.interface.ts"
+      ],
+      "../src/events/interfaces/events.interface.ts": [
+        "../node_modules/mongoose/index.d.ts"
+      ],
+      "../src/events/schemas/events.schema.ts": [
+        "../node_modules/mongoose/index.d.ts"
       ],
       "../src/user/interfaces/user.interface.ts": [
         "../node_modules/mongoose/index.d.ts"

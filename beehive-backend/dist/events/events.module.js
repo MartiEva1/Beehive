@@ -6,25 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.EventsModule = void 0;
 const common_1 = require("@nestjs/common");
+const events_service_1 = require("./events.service");
+const events_controller_1 = require("./events.controller");
+const events_schema_1 = require("./schemas/events.schema");
 const mongoose_1 = require("@nestjs/mongoose");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const user_module_1 = require("./user/user.module");
-const events_module_1 = require("./events/events.module");
-let AppModule = class AppModule {
+let EventsModule = class EventsModule {
 };
-AppModule = __decorate([
+EventsModule = __decorate([
     common_1.Module({
         imports: [
-            mongoose_1.MongooseModule.forRoot('mongodb://localhost/beehive-app', { useNewUrlParser: true }),
-            user_module_1.UserModule,
-            events_module_1.EventsModule
+            mongoose_1.MongooseModule.forFeature([{ name: 'Events', schema: events_schema_1.EventsSchema }])
         ],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [events_service_1.EventsService],
+        controllers: [events_controller_1.EventsController]
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], EventsModule);
+exports.EventsModule = EventsModule;
+//# sourceMappingURL=events.module.js.map
