@@ -1,0 +1,16 @@
+<ion-tabs #tabs (ionTabsDidChange)="setSelectedTab()">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon size="small" [name]="selected == 'home'? 'home' : 'home-outline'"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="event-list">
+      <ion-icon size="small" [name]="selected == 'event-list'? 'calendar' : 'calendar-outline'"></ion-icon>
+      <ion-label>Events</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="profile">
+      <ion-icon size="small" [name]="selected == 'profile'? 'person' : 'person-outline'"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

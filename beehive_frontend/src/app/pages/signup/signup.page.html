@@ -1,0 +1,94 @@
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content (scrollY)="false">
+  <div class="content">
+    <img id="logo" src="../assets/logo/SignUpLogo.png">
+    <div class="ion-text-center">
+      Join Beehive and build your network!
+    </div>
+    <form (ngSubmit)="signIn()" [formGroup]="user" class="ion-padding">
+      <div class="input-group">
+        <ion-item>
+            <ion-label position="stacked">Username:</ion-label>
+            <ion-input type="text" formControlName="username" placeholder="Insert username"></ion-input>
+        </ion-item>
+    
+        <div *ngIf="(username.dirty || username.touched) && username.errors" class="errors">
+            <ion-icon name="alert" class="ion-padding-end"></ion-icon>
+            <span *ngIf="username.errors?.required">Username is required</span>
+        </div>
+    
+        <ion-item>
+            <ion-label position="stacked">Password:</ion-label>
+            <ion-input type="password" formControlName="password" placeholder="Insert password"></ion-input>
+        </ion-item>
+    
+        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+            <ion-icon name="alert" class="ion-padding-end"></ion-icon>
+            <span *ngIf="password.errors?.required">Password is required</span>
+            <span *ngIf="password.errors?.minlength">The password has to have at least 6 characters</span>
+        </div>
+
+        <ion-item>
+            <ion-label position="stacked">Confirm password:</ion-label>
+            <ion-input type="password" formControlName="confirm_password" placeholder="Insert password again"></ion-input>
+        </ion-item>
+
+        <div *ngIf="(confirm_password.dirty || confirm_password.touched) && confirm_password.errors" class="errors">
+            <ion-icon name="alert" class="ion-padding-end"></ion-icon>
+            <span *ngIf="confirm_password.errors?.required">The confirmation is required</span>
+            <span *ngIf="confirm_password.errors?.mustMatch">The password doesn't match</span>
+        </div>
+
+        <ion-item>
+          <ion-label position="stacked">First name:</ion-label>
+          <ion-input type="text" formControlName="first_name" placeholder="Insert first name"></ion-input>
+        </ion-item>
+
+        <div *ngIf="(first_name.dirty || first_name.touched) && first_name.errors" class="errors">
+            <ion-icon name="alert" class="ion-padding-end"></ion-icon>
+            <span *ngIf="first_name.errors?.required">First name is required</span>
+        </div>
+
+        <ion-item>
+            <ion-label position="stacked">Last name:</ion-label>
+            <ion-input type="text" formControlName="last_name" placeholder="Insert last name"></ion-input>
+        </ion-item>
+
+        <div *ngIf="(last_name.dirty || last_name.touched) && last_name.errors" class="errors">
+            <ion-icon name="alert" class="ion-padding-end"></ion-icon>
+            <span *ngIf="last_name.errors?.required">Last name is required</span>
+        </div>
+
+        <ion-item>
+          <ion-label position="stacked">Date of birth:</ion-label>
+          <ion-datetime displayFormat="MM DD YYYY" formControlName="birth" min="1940-01-01" max="2003-12-31" placeholder="Select Date"></ion-datetime>
+        </ion-item>
+
+        <div *ngIf="(birth.dirty || birth.touched) && birth.errors" class="errors">
+            <ion-icon name="alert" class="ion-padding-end"></ion-icon>
+            <span *ngIf="birth.errors?.required">The date of birth is required</span>
+        </div>
+
+      </div>
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button type="reset" expand="block" color="light" fill="clear">RESET</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button type="submit" expand="block" color="primary" [disabled]="!user.valid">SIGN UP</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+

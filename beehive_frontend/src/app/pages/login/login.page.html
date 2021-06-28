@@ -1,0 +1,36 @@
+<ion-content (scrollY)="false">
+  <div class="content">
+    <img id="logo" src="../assets/logo/honey-3.png">
+    <form (ngSubmit)="login()" [formGroup]="credentials">
+      <div class="input-group">
+        <ion-item>
+          <ion-icon slot="start" name="person" color="medium"></ion-icon>
+          <ion-input type="text" placeholder="Insert username" formControlName="username"></ion-input>
+        </ion-item>
+
+        <div *ngIf="(username.dirty || username.touched) && username.errors" class="errors">
+          <ion-icon name="alert" class="ion-padding-end"></ion-icon>
+          <span *ngIf="username.errors?.required">Username is required</span>
+        </div>
+
+        <ion-item>
+          <ion-icon slot="start" name="lock-closed" color="medium"></ion-icon>
+          <ion-input type="password" placeholder="Insert password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+          <ion-icon name="alert" class="ion-padding-end"></ion-icon>
+          <span *ngIf="password.errors?.required">Password is required</span>
+          <span *ngIf="password.errors?.minlength">The password has to have at least 6 characters</span>
+        </div>
+      </div>
+
+      <ion-button type="submit" expand="block" size="large" mode="ios" [disabled]="!credentials.valid">LOG IN</ion-button>
+      <p>
+        <ion-button id="passwordDimenticata" mode="ios" expand="block" fill="clear">Forgot password?</ion-button>
+        <!-- <ion-button id="registrati" expand="block" fill="clear" type="button" color="primary" [routerLink]="['/menu', 'signin']">REGISTRATI</ion-button> -->
+        <ion-button id="registrati" mode="ios" expand="block" fill="clear" type="button" color="primary" [routerLink]="['/', 'signup']">Sign up</ion-button>
+      </p>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,56 @@
+ion-grid {
+    height: 86%;
+}
+ion-row {
+    height: 33%;
+}
+
+.paddingBottom {
+    padding-bottom: 10px;
+}
+
+.question {
+    font-size: 20px;
+    padding-top: 15px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+.cell {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.644);
+    background-blend-mode: darken;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+}
+.sport {
+    background-image: url(../../../assets/images/sport.jpg);
+}
+.study {
+    background-image: url(../../../assets/images/study.jpg);
+}
+.outdoor {
+    background-image: url(../../../assets/images/outdoorActivities.jpg);
+}
+.nightlife {
+    background-image: url(../../../assets/images/nightlifeEvents.jpg);
+}
+.barlife {
+    background-image: url(../../../assets/images/barLife.jpg);
+}
+.cultural {
+    background-image: url(../../../assets/images/culturalEvents.jpg);
+}
