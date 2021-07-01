@@ -6,6 +6,8 @@ import {CreateEventsDTO} from './dto/create-events.dto';
 
 @Injectable()
 export class EventsService {
+    categories = ['sport','study','outdoor','nightlife','bar','cultural'];
+
     constructor(@InjectModel('Events') private readonly eventsModel: Model<Events>) { }
     // fetch all events
     async getAllEvents(): Promise<Events[]> {
@@ -13,9 +15,14 @@ export class EventsService {
         return events;
     }
     // Get events by category
-    async getEventsbycat(cat): Promise<Events[]> {
-        const events = await this.eventsModel.find({category: cat}).exec();
-        return events;
+    async getEventsByCategory(cat): Promise<Events[]> {
+        if(this.categories.includes(cat)){
+            const events = await this.eventsModel.find({category: cat}).exec();
+            return events;
+        }
+        else{
+            return null;
+        }
     }
     // Get a single event
     async getEvent(eventID): Promise<Events> {

@@ -43,8 +43,8 @@ export class AuthService {
 
   login(credentials: { username: string, password: string }): Observable<any> {
     return this.http.post(this.url+"login", credentials).pipe(
-      map(async (user) => {
-        let token = "SilviaB";
+      map(async (user: {user: string, message: string}) => {
+        let token = user.user;
         this.isAuthenticated.next(true);
         this.token = token;
         await Storage.set({ key: TOKEN_KEY, value: token });

@@ -1591,8 +1591,18 @@
         "signature": "354b5fa59b2bfccc0758d0835f41034bc595b84e693080e112a292ba0556edbd",
         "affectsGlobalScope": false
       },
+      "../src/userexp/userexp.service.ts": {
+        "version": "3bc70ecdb8138debd2a571b1e023e96a23fe5b534e3a9a0a6b916374fc467b7f",
+        "signature": "bbada0282fcf18ae3cea1c1ce97143e42ed7876ca87094c6afa8f34e7a524bbf",
+        "affectsGlobalScope": false
+      },
+      "../src/userexp/userexp.module.ts": {
+        "version": "45657d60eeaf9642dda660221a9def05410d450771c4c0065e9c8c840c7807a3",
+        "signature": "0c2c109aa75967213df0a29044d4f52a37b8868444b5a79751c043deb1b0c06c",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "0d02426a13bc0dde96f753c55afa80707bb8ce5fbd49d52dcb029aac8731edee",
+        "version": "e83ff3a2efad16be3791490b3abf2ab6c51d730f6f2c98eb14b8914b97449098",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -1859,6 +1869,21 @@
       "../src/main.ts": {
         "version": "c1907a5ee4496394300e05dcbe56d41b5e2cb37bf8a43195ce2e1c934bb06438",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "affectsGlobalScope": false
+      },
+      "../src/userexp/dto/create-userexp.dto.ts": {
+        "version": "29b2a4d339aa036bcf5738103db12e8c97c310ede9be89e0a8fcd4a0b5d6cf48",
+        "signature": "445cef4f047932f612e09ca792b2ff82077f21c2c40f2c43d38054987ac6bfad",
+        "affectsGlobalScope": false
+      },
+      "../src/userexp/interfaces/userexp.interface.ts": {
+        "version": "acb8d7145c3fabfc5514a2962fea49fbcbcfdd2bef922ca376643d9d3b7b9d29",
+        "signature": "3f3023ec39550e1cef25c59f7f75b7248980470868b1903d573044bdabef54ae",
+        "affectsGlobalScope": false
+      },
+      "../src/userexp/schemas/userexp.schema.ts": {
+        "version": "ad12b89bf9d375fbe90de29ce7094a383c2d38cdfb2fed0201a4706a769e611e",
+        "signature": "ff775beef4a21d5f7037eafe78cf1f309a81d54393ccbf6c79a44e00a3b79036",
         "affectsGlobalScope": false
       },
       "../node_modules/@babel/types/lib/index.d.ts": {
@@ -3427,7 +3452,8 @@
         "../src/app.controller.ts",
         "../src/app.service.ts",
         "../src/events/events.module.ts",
-        "../src/user/user.module.ts"
+        "../src/user/user.module.ts",
+        "../src/userexp/userexp.module.ts"
       ],
       "../src/app.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -3486,6 +3512,19 @@
         "../node_modules/mongoose/index.d.ts",
         "../src/user/dto/create-user.dto.ts",
         "../src/user/interfaces/user.interface.ts"
+      ],
+      "../src/userexp/interfaces/userexp.interface.ts": [
+        "../node_modules/mongoose/index.d.ts"
+      ],
+      "../src/userexp/schemas/userexp.schema.ts": [
+        "../node_modules/mongoose/index.d.ts"
+      ],
+      "../src/userexp/userexp.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/userexp/userexp.service.ts"
+      ],
+      "../src/userexp/userexp.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
       ]
     },
     "exportedModulesMap": {
@@ -4851,6 +4890,12 @@
         "../node_modules/mongoose/index.d.ts",
         "../src/user/dto/create-user.dto.ts",
         "../src/user/interfaces/user.interface.ts"
+      ],
+      "../src/userexp/interfaces/userexp.interface.ts": [
+        "../node_modules/mongoose/index.d.ts"
+      ],
+      "../src/userexp/schemas/userexp.schema.ts": [
+        "../node_modules/mongoose/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": []

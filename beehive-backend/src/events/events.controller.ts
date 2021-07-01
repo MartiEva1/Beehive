@@ -25,9 +25,15 @@ export class EventsController {
 
     // Retrieve event list by category
     @Get('category/:category')
-    async getEventsbyCat(@Res() res,  @Param('category') category) {
-        const events = await this.eventsService.getEventsbycat(category);
-        return res.status(HttpStatus.OK).json(events);
+    async getEventsByCategory(@Res() res,  @Param('category') category) {
+        const events = await this.eventsService.getEventsByCategory(category);
+        if(events != null){
+            return res.status(HttpStatus.OK).json(events);
+        }
+        else{
+            return res.status(HttpStatus.BAD_REQUEST);
+        }
+        
     }
 
     // Fetch a particular event using ID

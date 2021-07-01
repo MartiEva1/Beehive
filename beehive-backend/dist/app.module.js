@@ -13,6 +13,7 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const user_module_1 = require("./user/user.module");
 const events_module_1 = require("./events/events.module");
+const userexp_module_1 = require("./userexp/userexp.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -20,7 +21,8 @@ AppModule = __decorate([
         imports: [
             mongoose_1.MongooseModule.forRoot('mongodb://localhost/beehive-app', { useNewUrlParser: true }),
             user_module_1.UserModule,
-            events_module_1.EventsModule
+            events_module_1.EventsModule,
+            userexp_module_1.UserexpModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
