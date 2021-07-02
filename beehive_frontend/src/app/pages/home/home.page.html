@@ -1,4 +1,4 @@
-<ion-header mode="ios">
+<ion-header mode="ios" [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Beehive
@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content (scrollY)="false">
+<ion-content (scrollY)="false" [fullscreen]="true">
   <ion-header collapse="condense" mode="ios">
     <ion-toolbar>
       <ion-title class="ion-text-center" color="secondary" size="large">Beehive</ion-title>
@@ -61,4 +61,12 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="secondary" (click)="openAddEvent()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

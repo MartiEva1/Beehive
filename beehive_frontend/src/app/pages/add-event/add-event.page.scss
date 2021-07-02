@@ -1,0 +1,16 @@
+.input-group {
+    padding: 10px;
+    // background: var(--ion-color-light);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.errors {
+    text-align: left;
+    font-size: small;
+    color:#eb445a;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

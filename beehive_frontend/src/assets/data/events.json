@@ -1,0 +1,26 @@
+{
+    "events": [
+        {
+            "id": 1,
+            "title": "Event 1",
+            "category": "bar",
+            "username": "SilviaB",
+            "date": "2021-04-07T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Lungomare Amerigo Vespucci, 118, 00122 Lido di Ostia RM",
+                "lat": 41.70600032641573,
+                "long": 12.33626760520735
+            },
+            "description": "Aperitif on the beach, with a fantastic location",
+            "partecipants": [
+                "SilviaB",
+                "MartyE",
+                "RickyB",
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/bar1.jpg"
+        }
+    ]
+}
