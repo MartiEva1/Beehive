@@ -1,9 +1,104 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>eventsCard</ion-title>
+    <ion-buttons *ngIf="isAndroid()" slot="start">
+      <ion-back-button defaultHref="/tabs/home" color="secondary"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{ title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/home" text="" color="secondary" [style.padding-left]="'5px'"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center" size="large">{{ title }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="wrapper">
+    <div class="filterButtonWrapper">
+      <ion-button class="filterButton" fill="outline">
+        <ion-icon slot="start" name="options-outline"></ion-icon>
+        Filters
+      </ion-button>
+    </div>
+    <div class="cardsWrapper">
+      <ion-card *ngFor="let event of events" #cardEvents id="{{ event.id }}" class="cardEvents">
+        <img src="{{event.img}}" class="imgHeader">
+        <ion-card-header class="ion-no-padding" [style.padding]="'8px 0px'">
+          <ion-card-title>
+            {{ event.title }}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid [style.width]="'100%'">
+            <ion-row>
+              <ion-col>
+                <ion-list class="infoList">
+                  <ion-item lines="none" class="dateHour">
+                    <ion-icon name="calendar-outline" slot="start" size="small"></ion-icon>
+                    <ion-label>{{ printDate(event.date) }}</ion-label>
+                  </ion-item>
+                  <ion-item lines="none" class="dateHour">
+                    <ion-icon name="time-outline" slot="start" size="small"></ion-icon>
+                    <ion-label>{{ printHour(event.hour) }}</ion-label>
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-icon name="pin" slot="start" size="small"></ion-icon>
+                    <ion-label  class="ion-text-wrap">{{ printPlace(event.place.address) }}</ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+              <ion-col>
+                <ion-grid>
+                  <ion-row [style.text-align]="'left'" [style.font-size]="'13px'" class="ion-align-items-center">
+                    <p [style.font-size]="'10px'">DESCRIPTION:</p>
+                    {{ event.description }}
+                  </ion-row>
+                  <ion-row class="ion-justify-content-center ion-align-items-center">
+                    <ion-item lines="none" [style.--background]="'transparent'">
+                      <ion-icon name="people" slot="start"></ion-icon>
+                      <ion-label> {{ getParticipants(event.participants) }} </ion-label>
+                    </ion-item>
+                  </ion-row>
+                </ion-grid>
+              </ion-col>
+            </ion-row>
+            <ion-row class="ion-justify-content-center ion-align-items-center" [style.margin-top]="'8px'">
+              <img src="{{ loadMap(event.place.lat, event.place.long) }}">
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
 
+      <ion-card *ngIf="!events?.length" class="cardEvents ion-padding ion-justify-content-center ion-align-items-center">
+        <img src="../../../assets/images/not_found.png" [style.height]="'150px'">
+        <p [style.font-size]="'20px'">
+          <b>OH NO!</b>
+        </p>
+        There is no event available for this category in the selected range of dates...<br>
+        Look for another event or change the date range!
+      </ion-card>
+    </div>
+    <div class="commandButtonsWrapper">
+      <ion-grid class="ion-no-padding">
+        <ion-col class="commandButtonsCol">
+          <ion-button class="commandButton ion-no-margin" fill="clear" [disabled]="!events?.length">
+            <ion-icon name="close-outline" color="danger" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col class="commandButtonsCol">
+          <ion-button class="commandButton ion-no-margin" fill="clear" [disabled]="!events?.length">
+            <ion-icon name="timer-outline" color="warning" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col class="commandButtonsCol">
+          <ion-button class="commandButton ion-no-margin" fill="clear" [disabled]="!events?.length">
+            <ion-icon name="checkmark-outline" color="success" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-grid>
+    </div>
+  </div>
 </ion-content>

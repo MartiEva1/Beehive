@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonRouterOutlet, ModalController } from '@ionic/angular';
+import { IonRouterOutlet, ModalController, Platform } from '@ionic/angular';
 import { AddEventPage } from '../add-event/add-event.page';
 
 @Component({
@@ -12,6 +12,7 @@ export class HomePage {
   constructor(
     private modalCtrl: ModalController,
     private routerOutlet: IonRouterOutlet,
+    private platform: Platform
   ) {}
 
   async openAddEvent() {
@@ -23,4 +24,7 @@ export class HomePage {
     return await modal.present();
   }
 
+  isAndroid(): Boolean {
+    return this.platform.is('android');
+  }
 }

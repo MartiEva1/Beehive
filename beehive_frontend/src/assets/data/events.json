@@ -5,7 +5,7 @@
             "title": "Event 1",
             "category": "bar",
             "username": "SilviaB",
-            "date": "2021-04-07T00:00:00-04:00",
+            "date": "2021-08-20T00:00:00-04:00",
             "hour": "2021-07-02T18:00:00-04:00",
             "place": {
                 "address": "Lungomare Amerigo Vespucci, 118, 00122 Lido di Ostia RM",
@@ -13,7 +13,7 @@
                 "long": 12.33626760520735
             },
             "description": "Aperitif on the beach, with a fantastic location",
-            "partecipants": [
+            "participants": [
                 "SilviaB",
                 "MartyE",
                 "RickyB",
@@ -25,47 +25,85 @@
         {
             "id": 2,
             "title": "Event 2",
-            "category": "study",
-            "username": "SilviaB",
-            "date": "2021-04-07T00:00:00-04:00",
+            "category": "bar",
+            "username": "MartyE",
+            "date": "2021-09-12T00:00:00-04:00",
             "hour": "2021-07-02T18:00:00-04:00",
             "place": {
-                "address": "Lungomare Amerigo Vespucci, 118, 00122 Lido di Ostia RM",
-                "lat": 41.70600032641573,
-                "long": 12.33626760520735
+                "address": "Piazza di Trevi, 00187 Roma RM",
+                "lat": 41.903487834336296, 
+                "long": 12.483079266257036
             },
-            "description": "Studying together, open air and books",
-            "partecipants": [
-                "SilviaB",
+            "description": "Aperitif in the hystorical center of Rome",
+            "participants": [
                 "MartyE",
                 "RickyB",
-                "admin",
-                "Lelli12"
+                "admin"
             ],
             "isPassed": false,
-            "img": "assets/eventsImages/study1.jpg"
+            "img": "assets/eventsImages/bar2.jpg"
         },
         {
             "id": 3,
             "title": "Event 3",
             "category": "outdoor",
-            "username": "MartyE",
-            "date": "2021-04-07T00:00:00-04:00",
-            "hour": "2021-07-02T18:00:00-04:00",
+            "username": "RickyB",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T09:00:00-04:00",
             "place": {
-                "address": "Lungomare Amerigo Vespucci, 118, 00122 Lido di Ostia RM",
-                "lat": 41.70600032641573,
-                "long": 12.33626760520735
+                "address": "02010 Micigliano RI",
+                "lat": 42.47757083020005, 
+                "long": 13.00169512109794
             },
-            "description": "Activity in the park, exercise together",
-            "partecipants": [
-                "SilviaB",
+            "description": "Excursion to Mount Terminillo, ",
+            "participants": [
                 "MartyE",
                 "RickyB",
                 "Lelli12"
             ],
             "isPassed": false,
-            "img": "assets/eventsImages/outdoor1.jpg"
+            "img": "assets/eventsImages/outdoor2.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Event 4",
+            "category": "bar",
+            "username": "Lelli12",
+            "date": "2021-04-07T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Piazza del Fico, 26, 00186 Roma RM",
+                "lat": 41.89957782066445, 
+                "long": 12.470782841982595
+            },
+            "description": "Coffee break at 'Bar del Figo' all together",
+            "participants": [
+                "MartyE",
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/bar4.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Event 5",
+            "category": "study",
+            "username": "RickyB",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T15:00:00-04:00",
+            "place": {
+                "address": "Piazzale Aldo Moro, 5, 00185 Roma RM",
+                "lat": 41.90372297152633, 
+                "long": 12.514403390098943
+            },
+            "description": "HCI session study",
+            "participants": [
+                "RickyB",
+                "Lelli12",
+                "admin"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/study1.jpg"
         }
     ]
 }

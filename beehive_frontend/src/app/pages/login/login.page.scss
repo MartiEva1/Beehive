@@ -1,13 +1,17 @@
 ion-content {
     --background: var(--ion-color-secondary);
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 .content {
     position: absolute;
-    height: 100%;
     width: 100%;
     text-align: center;
     padding: 10%;
-    padding-top: 30%;
+    margin-top: 50px;
 }
 .input-group {
     padding: 10px;

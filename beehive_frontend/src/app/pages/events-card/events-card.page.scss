@@ -1,0 +1,112 @@
+ion-content {
+    --overflow: hidden;
+    overflow: hidden;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+ion-card {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+ion-card-content {
+    // max-height: calc(100% - #{50px});
+    // position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+}
+
+.wrapper {
+    // height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.filterButtonWrapper {
+    height: 60px;
+    width: 100%;
+}
+.commandButtonsWrapper {
+    position: absolute;
+    text-align: center;
+    height: 90px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.filterButton {
+    --border-radius: 50px;
+    height: 30px;
+    margin: 15px 0px;
+}
+
+.ios {
+    .cardEvents {
+        position: absolute;
+        top: 104px;
+        bottom: 100px;
+        width: -webkit-fill-available;
+    }
+
+    .dateHour {
+        height: 30px;
+    }
+}
+.md {
+    .cardEvents {
+        position: absolute;
+        top: 60px;
+        bottom: 100px;
+        width: -webkit-fill-available;
+    }
+
+    .dateHour {
+        height: 35px;
+    }
+}
+
+.commandButton {
+    height: 70px;
+    width: 70px;
+    --border-radius: 50%;
+    --box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.commandButtonsCol {
+    width: 70px;
+    height: 70px;
+    margin-left: 10px;
+}
+
+.infoList {
+    border-radius: 15px;
+    border-color: var(--ion-color-medium);
+    border-style: solid;
+    border-width: 0.5px;
+    background-color: var(--ion-color-light);
+    ion-item {
+        --background: var(--ion-color-light);
+        ion-label {
+            font-size: 12px;
+        }
+    }
+}
+
+.imgHeader {
+    width: 100%;
+    min-height: 120px;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+@media (prefers-color-scheme: dark) {
+    .commandButton {
+        height: 70px;
+        width: 70px;
+        --border-radius: 50%;
+        --box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.2), 0 6px 10px 0 rgba(255, 255, 255, 0.19);
+    }
+}
