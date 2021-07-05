@@ -17,4 +17,8 @@ import { GroupChatsPage } from './group-chats.page';
   ],
   declarations: [GroupChatsPage]
 })
-export class GroupChatsPageModule {}
+export class GroupChatsPageModule {
+
+  async openChat() {
+  }
+}

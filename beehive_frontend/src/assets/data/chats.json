@@ -1,0 +1,69 @@
+{
+    "chats": [
+        {
+            "id": 1,
+            "messages": [
+                {
+                    "user": "Simon",
+                    "createdAt": 1554090856000,
+                    "msg": "hey whats up?"
+                  },
+                  {
+                    "user": "Matt",
+                    "createdAt": 1554090956000,
+                    "msg": "All right, organizing my night out, you?"
+              
+                  },
+                  {
+                    "user": "Simon",
+                    "createdAt": 1554090956000,
+                    "msg": "Doing some new tutorial stuff?"
+              
+                  }
+            ]
+        },
+        {
+            "id": 2,
+            "messages": [
+                {
+                    "user": "Sarah",
+                    "createdAt": 1554090856000,
+                    "msg": "hey whats up?"
+                  },
+                  {
+                    "user": "Matt",
+                    "createdAt": 1554090956000,
+                    "msg": "All right, organizing my study today, you?"
+              
+                  },
+                  {
+                    "user": "Simon",
+                    "createdAt": 1554090956000,
+                    "msg": "Me too, let's do this together"
+                  }
+            ]
+        },
+        {
+            "id": 3,
+            "messages": [
+                {
+                    "user": "Jess",
+                    "createdAt": 1554090856000,
+                    "msg": "hey whats up?"
+                  },
+                  {
+                    "user": "Silvia",
+                    "createdAt": 1554090956000,
+                    "msg": "All right, want to exercise, you?"
+              
+                  },
+                  {
+                    "user": "Simon",
+                    "createdAt": 1554090956000,
+                    "msg": "It's good that we have organized the training at the park"
+              
+                  }
+            ]
+        }
+    ]
+}

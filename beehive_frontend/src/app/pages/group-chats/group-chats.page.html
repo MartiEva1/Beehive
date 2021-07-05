@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>groupChats</ion-title>
+    <ion-back-button slot="start" defaultHref="/tabs/home" mode="ios"></ion-back-button>
+    <ion-title>Group Chats</ion-title>
   </ion-toolbar>
+  <style>
+    :root {
+      --ion-safe-area-top: 20px;
+      --ion-safe-area-bottom: 22px;
+    }
+  </style>
 </ion-header>
 
 <ion-content>
+  <ion-list *ngFor="let event of events">
+    <!--<ion-item Href="/chat">-->
+    <ion-item (click)="openChat(event.id)">
+      <ion-avatar slot="start">
+        <img src={{event.img}}>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{event.title}}</h2>
+        <h3>{{event.category}}</h3>
+        <p>{{event.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

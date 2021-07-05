@@ -5,7 +5,7 @@ export declare class EventsController {
     constructor(eventsService: EventsService);
     addEvent(res: any, createEventsDTO: CreateEventsDTO): Promise<any>;
     getAllEvents(res: any): Promise<any>;
-    getEventsbyCat(res: any, category: any): Promise<any>;
+    getEventsByCategory(res: any, category: any): Promise<any>;
     getevent(res: any, eventID: any): Promise<any>;
     updateEvent(res: any, eventID: any, createEventsDTO: CreateEventsDTO): Promise<any>;
     participateEvent(res: any, info: {

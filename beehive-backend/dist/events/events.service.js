@@ -19,14 +19,20 @@ const mongoose_2 = require("@nestjs/mongoose");
 let EventsService = class EventsService {
     constructor(eventsModel) {
         this.eventsModel = eventsModel;
+        this.categories = ['sport', 'study', 'outdoor', 'nightlife', 'bar', 'cultural'];
     }
     async getAllEvents() {
         const events = await this.eventsModel.find().exec();
         return events;
     }
-    async getEventsbycat(cat) {
-        const events = await this.eventsModel.find({ category: cat }).exec();
-        return events;
+    async getEventsByCategory(cat) {
+        if (this.categories.includes(cat)) {
+            const events = await this.eventsModel.find({ category: cat }).exec();
+            return events;
+        }
+        else {
+            return null;
+        }
     }
     async getEvent(eventID) {
         const event = await this.eventsModel.findById(eventID).exec();

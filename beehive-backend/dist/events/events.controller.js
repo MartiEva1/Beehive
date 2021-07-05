@@ -31,9 +31,14 @@ let EventsController = class EventsController {
         const events = await this.eventsService.getAllEvents();
         return res.status(common_1.HttpStatus.OK).json(events);
     }
-    async getEventsbyCat(res, category) {
-        const events = await this.eventsService.getEventsbycat(category);
-        return res.status(common_1.HttpStatus.OK).json(events);
+    async getEventsByCategory(res, category) {
+        const events = await this.eventsService.getEventsByCategory(category);
+        if (events != null) {
+            return res.status(common_1.HttpStatus.OK).json(events);
+        }
+        else {
+            return res.status(common_1.HttpStatus.BAD_REQUEST);
+        }
     }
     async getevent(res, eventID) {
         const event = await this.eventsService.getEvent(eventID);
@@ -91,7 +96,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
-], EventsController.prototype, "getEventsbyCat", null);
+], EventsController.prototype, "getEventsByCategory", null);
 __decorate([
     common_1.Get('event/:eventID'),
     __param(0, common_1.Res()), __param(1, common_1.Param('eventID')),
