@@ -14,7 +14,7 @@
 <ion-content>
   <ion-list *ngFor="let event of events">
     <!--<ion-item Href="/chat">-->
-    <ion-item (click)="openChat(event.id)">
+    <ion-item (click)="openChat(event.id)" *ngIf="event.partecipants.includes(currentUser)"> 
       <ion-avatar slot="start">
         <img src={{event.img}}>
       </ion-avatar>

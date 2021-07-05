@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 import eventsData from '../../../assets/data/events.json';
 
@@ -12,9 +13,10 @@ import eventsData from '../../../assets/data/events.json';
 export class GroupChatsPage implements OnInit {
   
   events = eventsData.events;
+  currentUser= this.authServ.token;
   
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController,private authServ: AuthService) { }
 
   ngOnInit() {
   }
