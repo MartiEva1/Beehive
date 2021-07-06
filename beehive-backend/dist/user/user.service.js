@@ -45,6 +45,11 @@ let UserService = class UserService {
         const deletedUser = await this.userModel.findByIdAndRemove(userID);
         return deletedUser;
     }
+    async updatePassword(userID, newPassword) {
+        const updatedUser = await this.userModel
+            .findByIdAndUpdate(userID, { password: newPassword });
+        return updatedUser;
+    }
 };
 UserService = __decorate([
     common_1.Injectable(),

@@ -7,6 +7,11 @@ export declare class UserController {
     getAllUser(res: any): Promise<any>;
     getUser(res: any, username: any): Promise<any>;
     updateUser(res: any, userID: any, createUserDTO: CreateUserDTO): Promise<any>;
+    updatePassword(res: any, userID: any, passwords: {
+        username: string;
+        oldPassword: string;
+        newPassword: string;
+    }): Promise<any>;
     deleteUser(res: any, userID: any): Promise<any>;
     login(res: any, credentials: {
         username: string;

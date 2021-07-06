@@ -11,6 +11,67 @@
     <ion-toolbar>
       <ion-title class="ion-text-center" size="large">Your Events</ion-title>
     </ion-toolbar>
+    <ion-toolbar>
+      <ion-segment (ionChange)="segmentChanged($event)" value="all">
+        <ion-segment-button value="all">
+          <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="favorites">
+          <ion-label>Favorites</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
   </ion-header>
+  
+  <ion-list *ngFor="let event of getEvents()">
+      <ion-card>
+        <ion-button size="small" fill="outline" color="danger" class="leaveButton">
+          Leave
+        </ion-button>
+        <ion-card-content>
+          <ion-row>
+            <ion-item lines="none">
+              <ion-thumbnail slot="start">
+                <img src={{event.img}}>
+              </ion-thumbnail>
+              <ion-label class="ion-text-wrap">
+                <h3><b>{{ event.title }}</b></h3>
+                <p>{{ event.description }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-row>
+    
+          <ion-row>
+            <ion-item lines="none">
+              <ion-icon name="pin" slot="start"></ion-icon>
+              <ion-label> {{ printPlace(event.place.address) }} </ion-label>
+            </ion-item>
+        
+            <ion-item lines="none">
+              <ion-icon name="time-outline" slot="start"></ion-icon>
+              <ion-label> {{ printHour(event.hour) }} </ion-label>
+            </ion-item>
+            
+            <ion-item lines="none">
+              <ion-icon name="calendar-outline" slot="start"></ion-icon>
+              <ion-label> {{ printDate(event.date) }} </ion-label>
+            </ion-item>
+          </ion-row>
+            
+          <ion-row>
+            <ion-item lines="none">
+              <ion-icon name="people" slot="start"></ion-icon>
+              <ion-label> {{ getParticipants(event.participants) }} </ion-label>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-button color="secondary" size="default"> See partecipants </ion-button>
+            </ion-item>   
+          </ion-row>
+
+        </ion-card-content>      
+      </ion-card>
+    
+  </ion-list>
 
 </ion-content>

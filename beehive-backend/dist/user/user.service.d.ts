@@ -9,4 +9,5 @@ export declare class UserService {
     addUser(createUserDTO: CreateUserDTO): Promise<User>;
     updateUser(userID: any, createUserDTO: CreateUserDTO): Promise<User>;
     deleteUser(userID: any): Promise<any>;
+    updatePassword(userID: any, newPassword: string): Promise<User>;
 }

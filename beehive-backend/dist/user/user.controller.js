@@ -54,6 +54,26 @@ let UserController = class UserController {
             user
         });
     }
+    async updatePassword(res, userID, passwords) {
+        var user = await this.userService.getUser(passwords.username);
+        if (!user)
+            throw new common_1.NotFoundException('Username does not exists!');
+        var reslt;
+        await bcrypt.compare(passwords.oldPassword, user.password).then(function (result) {
+            reslt = result;
+        });
+        if (reslt == false)
+            throw new common_1.NotFoundException('Invalid Password');
+        else {
+            await bcrypt.hash(passwords.newPassword, saltRounds).then(function (hash) {
+                passwords.newPassword = hash;
+            });
+            this.userService.updatePassword(userID, passwords.newPassword);
+            return res.status(common_1.HttpStatus.OK).json({
+                message: "Password has been changed successfully",
+            });
+        }
+    }
     async deleteUser(res, userID) {
         const user = await this.userService.deleteUser(userID);
         if (!user)
@@ -109,6 +129,13 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object, create_user_dto_1.CreateUserDTO]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "updateUser", null);
+__decorate([
+    common_1.Put('/updatePassword'),
+    __param(0, common_1.Res()), __param(1, common_1.Query('userID')), __param(2, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "updatePassword", null);
 __decorate([
     common_1.Delete('/delete'),
     __param(0, common_1.Res()), __param(1, common_1.Query('userID')),
