@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/setting/setting.module').then( m => m.SettingPageModule)
   },
   {
-    path: 'events-card',
+    path: 'events-card/:category',
     loadChildren: () => import('./pages/events-card/events-card.module').then( m => m.EventsCardPageModule)
   },
   {

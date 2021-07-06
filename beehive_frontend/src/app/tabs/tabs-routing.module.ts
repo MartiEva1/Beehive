@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/profile/profile.module').then(m => m.ProfilePageModule)
       },
       {
+        path: 'home/events-card/:category',
+        loadChildren: () => import('../pages/events-card/events-card.module').then( m => m.EventsCardPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
