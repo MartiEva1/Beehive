@@ -19,7 +19,6 @@ export class GroupChatsPage implements OnInit {
   constructor(private navCtrl: NavController,private authServ: AuthService) { }
 
   ngOnInit() {
-    console.log(this.events);
   }
 
   openChat(id: number) {

@@ -50,6 +50,27 @@ export class UserController {
         });
     }
 
+    @Put('/updatePassword')
+    async updatePassword(@Res() res, @Query('userID') userID, @Body() passwords: { username: string, oldPassword: string, newPassword: string }) {
+        var user = await this.userService.getUser(passwords.username);
+        if (!user) throw new NotFoundException('Username does not exists!');
+        var reslt;
+        await bcrypt.compare(passwords.oldPassword, user.password).then(function(result) {
+            reslt=result
+        });
+        if (reslt==false) throw new NotFoundException('Invalid Password');
+        else
+        {
+            await bcrypt.hash(passwords.newPassword, saltRounds).then(function(hash) {
+                passwords.newPassword = hash;
+            });
+            this.userService.updatePassword(userID, passwords.newPassword);
+            return res.status(HttpStatus.OK).json({
+                message: "Password has been changed successfully",
+            })
+        }
+    }
+
     // Delete a user
     @Delete('/delete')
     async deleteUser(@Res() res, @Query('userID') userID) {

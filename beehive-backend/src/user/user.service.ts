@@ -39,4 +39,11 @@ export class UserService {
         const deletedUser = await this.userModel.findByIdAndRemove(userID);
         return deletedUser;
     }
+
+    // Edit user password
+    async updatePassword(userID, newPassword: string): Promise<User> {
+        const updatedUser = await this.userModel
+            .findByIdAndUpdate(userID, { password: newPassword });
+        return updatedUser;
+    }
 }
