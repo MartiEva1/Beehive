@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import eventsData from '../../../assets/data/events.json';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -25,17 +26,10 @@ export class ParticipantsPage implements OnInit {
   ngOnInit() {
     this.mapboxToken = environment.mapbox.accessToken;
     this.currentUser= this.authServ.token;
+    
     this.event_id = this.route.snapshot.paramMap.get('id');
 
     this.event = eventsData.events.find(item => item.id == this.event_id);
-    
-    /*for(let el in eventsData.events){
-      
-      if(eventsData.events[el].id == this.event_id){
-        
-        this.event = eventsData.events[el];
-      }
-    }*/
     
   }
   // return number of participants to the event

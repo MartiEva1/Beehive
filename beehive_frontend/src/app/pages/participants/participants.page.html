@@ -53,10 +53,16 @@
            
             <ion-list class="infoList">
               <ion-item *ngFor="let p of event.participants">
-                <ion-thumbnail>
-
-                </ion-thumbnail>
-                <ion-label>
+                <ion-avatar slot="start">
+                  
+                  <img *ngIf="p === 'RickyB'" src='../../../assets/users/uomo1.jpg'>
+                  <img *ngIf="p === 'admin'" src='../../../assets/users/uomo2.jpg'>
+                  <img *ngIf="p === 'Lelli12'" src='../../../assets/users/donna1.jpg'>
+                  <img *ngIf="p === 'MartyE'" src='../../../assets/users/donna2.jpg'>
+                  <img *ngIf="p === 'SilviaB'" src='../../../assets/users/donna3.jpg'>
+                                  
+                </ion-avatar>
+                <ion-label [style.font-size]="'16px'">
                   {{ p }}
                 </ion-label>
                 </ion-item>

@@ -61,4 +61,8 @@ export class AuthService {
     const token = await Storage.get({ key: TOKEN_KEY });
     return this.http.get(this.url+"user/"+token.value);
   }
+
+  getUserByUserame(username): Observable<any>{
+    return this.http.get(this.url+"user/"+username);
+  }
 }
