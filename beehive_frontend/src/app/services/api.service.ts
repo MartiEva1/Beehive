@@ -42,4 +42,9 @@ export class ApiService {
   postEvent(params: any): Observable<any> {
     return this.http.post(this.url, params);
   }
+  deleteEvent(eventId: number){
+    this.events = this.events.filter(event => {
+      return event.id !== eventId;
+    });
+  }
 }

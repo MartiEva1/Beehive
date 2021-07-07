@@ -9,15 +9,15 @@
 <ion-content>
   <ion-header collapse="condense"  mode="ios">
     <ion-toolbar>
-      <ion-title class="ion-text-center" size="large">Your Events</ion-title>
+      <ion-title class="ion-text-center" size="large">Events Lists</ion-title>
     </ion-toolbar>
     <ion-toolbar>
       <ion-segment (ionChange)="segmentChanged($event)" value="all">
         <ion-segment-button value="all">
-          <ion-label>All</ion-label>
+          <ion-label>Joined</ion-label>
         </ion-segment-button>
         <ion-segment-button value="favorites">
-          <ion-label>Favorites</ion-label>
+          <ion-label>Yours</ion-label>
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
@@ -25,8 +25,8 @@
   
   <ion-list *ngFor="let event of getEvents()">
       <ion-card>
-        <ion-button size="small" fill="outline" color="danger" class="leaveButton">
-          Leave
+        <ion-button size="small" fill="outline" color="danger" class="leaveButton" (click)="leaveEvent(event.id)">
+          {{ buttonLabel }}
         </ion-button>
         <ion-card-content>
           <ion-row>
@@ -59,14 +59,18 @@
           </ion-row>
             
           <ion-row>
-            <ion-item lines="none">
-              <ion-icon name="people" slot="start"></ion-icon>
-              <ion-label> {{ getParticipants(event.participants) }} </ion-label>
-            </ion-item>
+            <ion-col>
+              <ion-item lines="none">
+                <ion-icon name="people" slot="start"></ion-icon>
+                <ion-label> {{ getParticipants(event.participants) }} </ion-label>
+              </ion-item>
+            </ion-col>
 
-            <ion-item lines="none">
-              <ion-button color="secondary" size="default"> See partecipants </ion-button>
-            </ion-item>   
+            <ion-col>
+              <ion-item lines="none">
+                <ion-button color="secondary" size="default"> Participants </ion-button>
+              </ion-item>            
+            </ion-col>          
           </ion-row>
 
         </ion-card-content>      
