@@ -4,6 +4,7 @@ import eventsData from '../../../assets/data/events.json';
 import { ApiService, Event } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-event-list',
@@ -24,7 +25,8 @@ export class EventListPage implements OnInit {
   constructor(
     private serv: ApiService, 
     private authServ: AuthService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private navCtrl: NavController
   ) { }
   
   ngOnInit(): void {
@@ -93,10 +95,10 @@ export class EventListPage implements OnInit {
           handler: () => {
             
             this.selectedEvents = this.selectedEvents.filter(event => {
-              return event.id !== eventId;
+              return event.id != eventId;
             });
             for(let el in this.events){
-              if(this.events[el].id === eventId){
+              if(this.events[el].id == eventId){
                 this.events[el].participants = this.events[el].participants.filter(p => {
                   return p !== this.currentUser; 
                 })
@@ -121,16 +123,16 @@ export class EventListPage implements OnInit {
           handler: () => {
             
             this.myEvents = this.myEvents.filter(event => {
-              return event.id !== eventId;
+              return event.id != eventId;
             });
             for(let el in this.events){
-              if(this.events[el].id === eventId){
+              if(this.events[el].id == eventId){
                 this.events[el].participants = [];
                 this.events[el].username = '';
               }
             }
             this.events = this.events.filter(event => {
-              return event.id !== eventId;
+              return event.id != eventId;
             });
             
             this.visualizedEvents = this.myEvents;
@@ -151,5 +153,8 @@ export class EventListPage implements OnInit {
       this.visualizedEvents = this.myEvents;
     }
     return this.visualizedEvents;
+  }
+  openParticipants(event_id: number){
+    this.navCtrl.navigateForward(['/participants', event_id]);
   }
 }

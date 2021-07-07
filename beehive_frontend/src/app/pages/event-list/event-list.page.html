@@ -68,7 +68,7 @@
 
             <ion-col>
               <ion-item lines="none">
-                <ion-button color="secondary" size="default" [routerLink]="['/participants/', '{event.id}']"> Participants </ion-button>
+                <ion-button color="secondary" size="default" (click)="openParticipants(event.id)"> Participants </ion-button>
               </ion-item>            
             </ion-col>          
           </ion-row>
