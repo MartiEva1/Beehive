@@ -3,22 +3,28 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
 import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
-export function MustMatch() {
-  return (formGroup: AbstractControl): ValidationErrors | null  => {
-    // const control = formGroup.controls[controlName];
-    // const matchingControl = formGroup.controls[matchingControlName];
-    // if (matchingControl.errors && !matchingControl.errors.mustMatch)
-    // {
-    //   // return se un altro validator ha trovato un errore
-    //   return;
-    // }
-    // // set error
-    // control.value!==matchingControl.value? matchingControl.setErrors({ mustMatch: true }) : matchingControl.setErrors(null);
-    
-    const password = formGroup.value.newPassword;
-    const confirmPassword = formGroup.value.confirmPassword;
+// export function MustMatch() {
+//   return (formGroup: AbstractControl): ValidationErrors | null  => {
+//     const password = formGroup.value.newPassword;
+//     const confirmPassword = formGroup.value.confirmPassword;
 
-    return password !== confirmPassword? { mustMatch: true } : null;
+//     console.log(password !== confirmPassword)
+
+//     return password !== confirmPassword? { mustMatch: true } : null;
+//   }
+// }
+
+export function mustMatch(controlName: string, matchingControlName: string) {
+  return (formGroup: FormGroup) => {
+    const control = formGroup.controls[controlName];
+    const matchingControl = formGroup.controls[matchingControlName];
+    if (matchingControl.errors && !matchingControl.errors.mustMatch) 
+    {
+      // return se un altro validator ha trovato un errore
+      return;
+    }
+    // set error
+    control.value!==matchingControl.value? matchingControl.setErrors({ mustMatch: true }) : matchingControl.setErrors(null);
   }
 }
 
@@ -47,7 +53,9 @@ export class EditPasswordPage implements OnInit {
       newPassword: ['',  [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['',  [ Validators.required, Validators.minLength(6)]],
     }, {
-      validators: MustMatch(),
+      validators: [
+        mustMatch('newPassword', 'confirmPassword')
+      ],
     });
   }
   
