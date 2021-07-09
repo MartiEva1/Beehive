@@ -60,16 +60,50 @@ export class ApiService {
     return this.events.find(item => item.id == eventId);
   }
 
+  getBookedEvents(username) {
+    return this.events.filter(event => event.participants.includes(username) && event.username !== username);
+  }
+
+  getCreatedEvents(username) {
+    return this.events.filter(event => event.username === username);
+  }
+
   postEvent(params: any) {
     params.id = this.events.length + 1;
     params.participants = [ params.username ];
     return this.events.push(params);
   }
+  putEvent(eventId, params: any) {
+    const event = this.events.find(item => item.id == eventId);
+    const participants = event.participants;
+
+    params.participants = participants;
+    params.id = eventId;
+
+    this.events = this.events.filter(item => item.id != eventId);
+    this.events.push(params);
+  }
 
   deleteEvent(eventId: number){
-    this.events = this.events.filter(event => {
-      return event.id !== eventId;
-    });
+    for(let el in this.events)
+    {
+      if(this.events[el].id == eventId)
+      {
+        this.events[el].participants = [];
+        this.events[el].username = '';
+      }
+    }
+
+    this.events = this.events.filter(event => event.id != eventId);
+  }
+  leaveEvent(eventId: number, username: string) {
+    for(let el in this.events)
+    {
+      if(this.events[el].id == eventId)
+      {
+        this.events[el].participants = this.events[el].participants.filter(p => p !== username);
+      }
+    }
   }
 
   addParticipantToEvent(eventId: number, participant: string): String {

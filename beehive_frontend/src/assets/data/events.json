@@ -38,6 +38,7 @@
             "participants": [
                 "MartyE",
                 "RickyB",
+                "SilviaB",
                 "admin"
             ],
             "isPassed": false,
@@ -79,6 +80,7 @@
             "description": "Coffee break at 'Bar del Figo' all together",
             "participants": [
                 "MartyE",
+                "SilviaB",
                 "Lelli12"
             ],
             "isPassed": false,
@@ -100,10 +102,378 @@
             "participants": [
                 "RickyB",
                 "Lelli12",
+                "SilviaB",
                 "admin"
             ],
             "isPassed": false,
             "img": "assets/eventsImages/study1.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Event 6",
+            "category": "study",
+            "username": "RickyB",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T15:00:00-04:00",
+            "place": {
+                "address": "Piazzale Aldo Moro, 5, 00185 Roma RM",
+                "lat": 41.90372297152633, 
+                "long": 12.514403390098943
+            },
+            "description": "SE session study",
+            "participants": [
+                "RickyB",
+                "Lelli12",
+                "admin"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/study2.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Event 7",
+            "category": "bar",
+            "username": "MartyE",
+            "date": "2021-08-20T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Via di Torre Morena, 66 E/F, 00118 Roma RM",
+                "lat": 41.83208,
+                "long": 12.61626
+            },
+            "description": "Mr-Mad: Beer with friends in a very american bar",
+            "participants": [
+                "MartyE",
+                "RickyB",
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/bar3.jpeg"
+        },
+        {
+            "id": 8,
+            "title": "Event 8",
+            "category": "outdoor",
+            "username": "LElli12",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T09:00:00-04:00",
+            "place": {
+                "address": "via vicinale di sotto, 67046 Santa Iona AQ",
+                "lat": 42.10339396362757, 
+                "long": 13.502675698988222
+            },
+            "description": "Horse riding at Centro Ippico Velino Sirente ",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/outdoor3.jpg"
+        },
+        {
+            "id": 9,
+            "title": "Event 9",
+            "category": "outdoor",
+            "username": "LElli12",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T09:00:00-04:00",
+            "place": {
+                "address": "Via del Campanile, 1, 67046 Ovindoli AQ",
+                "lat": 42.13475364098237, 
+                "long": 13.513780640031039
+            },
+            "description": "Experience in the nature at Ovindoli ",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/outdoor1.jpg"
+        },
+        {
+            "id": 10,
+            "title": "Event 10",
+            "category": "sport",
+            "username": "RickyB",
+            "date": "2021-09-12T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Largo Settimio Passamonti, 00185 Roma RM",
+                "lat": 41.897598432231305, 
+                "long": 12.520437996206287 
+            },
+            "description": "Basketball match at Basket Playground",
+            "participants": [
+                "RickyB",
+                "admin"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/sport1.jpg"
+        },
+        {
+            "id": 11,
+            "title": "Event 11",
+            "category": "sport",
+            "username": "RickyB",
+            "date": "2021-09-12T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Via Luigi Perna, 26, 00142 Roma RM",
+                "lat": 41.8462156181444, 
+                "long": 12.48048451118686
+            },
+            "description": "Paddle tournment at Bola",
+            "participants": [
+                "RickyB"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/sport2.jpg"
+        },
+        {
+            "id": 12,
+            "title": "Event 12",
+            "category": "outdoor",
+            "username": "Lelli12",
+            "date": "2021-09-12T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Via Ninfina, 68, 04012 Cisterna di Latina LT",
+                "lat": 41.581911560296035, 
+                "long": 12.953903182343378
+            },
+            "description": "Walk in the magic atmosphere of Giardini di Ninfa",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/outdoor4.jpg"
+        },
+        {
+            "id": 13,
+            "title": "Event 13",
+            "category": "study",
+            "username": "RickyB",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T15:00:00-04:00",
+            "place": {
+                "address": "Piazzale Aldo Moro, 5, 00185 Roma RM",
+                "lat": 41.90372297152633, 
+                "long": 12.514403390098943
+            },
+            "description": "session study all together, in silence so no matter the discipline",
+            "participants": [
+                "RickyB",
+                "admin"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/study3.jpeg"
+        },
+        {
+            "id": 14,
+            "title": "Event 14",
+            "category": "study",
+            "username": "LElli12",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T15:00:00-04:00",
+            "place": {
+                "address": "Piazzale Aldo Moro, 5, 00185 Roma RM",
+                "lat": 41.90372297152633, 
+                "long": 12.514403390098943
+            },
+            "description": "Study and repeat together for Computer engineering",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/study4.jpg"
+        },
+        {
+            "id": 15,
+            "title": "Event 15",
+            "category": "sport",
+            "username": "RickyB",
+            "date": "2021-09-12T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Via Quinto Publicio, 39, 00173 Roma RM",
+                "lat": 41.857531761236196, 
+                "long": 12.57645199769397
+            },
+            "description": "Soccer play with friends at Bettini",
+            "participants": [
+                "RickyB"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/sport3.jpg"
+        },
+        {
+            "id": 16,
+            "title": "Event 16",
+            "category": "sport",
+            "username": "RickyB",
+            "date": "2021-09-12T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Lungomare Amerigo Vespucci, 118, 00122 Lido di Ostia RM",
+                "lat": 41.706056395170286, 
+                "long": 12.335913553511475
+            },
+            "description": "Beach vollay play with friends at La Spiaggia",
+            "participants": [
+                "RickyB"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/sport4.jpg"
+        },
+        {
+            "id": 17,
+            "title": "Event 17",
+            "category": "nightlife",
+            "username": "RickyB",
+            "date": "2021-09-12T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Piazzale del Verano, 00185 Roma RM",
+                "lat": 41.900981132421734, 
+                "long": 12.518679882352927 
+            },
+            "description": "Let's meet at Giardino Verano and have a great night listening to music",
+            "participants": [
+                "RickyB"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/nightlife1.jpg"
+        },
+        {
+            "id": 18,
+            "title": "Event 18",
+            "category": "cultural",
+            "username": "LElli12",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T15:00:00-04:00",
+            "place": {
+                "address": "Piazza del Colosseo, 1, 00184 Roma RM",
+                "lat": 41.8903539418332, 
+                "long": 12.492241626530488
+            },
+            "description": "Let's visit the colosseum together",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/cultural1.jpg"
+        },
+        {
+            "id": 19,
+            "title": "Event 19",
+            "category": "cultural",
+            "username": "LElli12",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T15:00:00-04:00",
+            "place": {
+                "address": "Piazza San Pietro, 00120 Città del Vaticano",
+                "lat": 41.902294444303614, 
+                "long": 12.453947426530942
+            },
+            "description": "Let's visit the San Pietro together",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/cultural2.jpg"
+        },
+        {
+            "id": 20,
+            "title": "Event 20",
+            "category": "cultural",
+            "username": "LElli12",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T15:00:00-04:00",
+            "place": {
+                "address": "Via Guido Reni, 4a, 00196 Roma RM",
+                "lat": 41.92834504596658, 
+                "long": 12.466843768860505 
+            },
+            "description": "Guided visit at MAXXI museum",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/cultural3.jpg"
+        },
+        {
+            "id": 21,
+            "title": "Event 21",
+            "category": "cultural",
+            "username": "LElli12",
+            "date": "2021-10-07T00:00:00-04:00",
+            "hour": "2021-07-02T15:00:00-04:00",
+            "place": {
+                "address": "Piazzale del Museo Borghese, 5, 00197 Roma RM",
+                "lat": 41.91412262372663, 
+                "long": 12.49182029584649 
+            },
+            "description": "Guided visit at Galleria Borghese museum",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/cultural4.jpg"
+        },
+        {
+            "id": 22,
+            "title": "Event 22",
+            "category": "nightlife",
+            "username": "RickyB",
+            "date": "2021-09-12T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Via dell'Almone, 105, 00179 Roma RM",
+                "lat": 41.854770425899396, 
+                "long": 12.531542795844722 
+            },
+            "description": "Parco Appio spend the night with a good drink and the right atmosphere",
+            "participants": [
+                "RickyB"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/nightlife2.jpg"
+        },
+        {
+            "id": 23,
+            "title": "Event 23",
+            "category": "nightlife",
+            "username": "Lelli12",
+            "date": "2021-09-12T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Via di Villa Lauchli, 1, 00191 Roma RM",
+                "lat": 41.95081490567801, 
+                "long": 12.460976224683163 
+            },
+            "description": "Profumo Spazio Sensoriale, great location for amazing nights",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/nightlife3.jpg"
+        },
+        {
+            "id": 24,
+            "title": "Event 24",
+            "category": "nightlife",
+            "username": "Lelli12",
+            "date": "2021-09-12T00:00:00-04:00",
+            "hour": "2021-07-02T18:00:00-04:00",
+            "place": {
+                "address": "Viale dei Gladiatori, 68, 00135 Roma RM",
+                "lat": 41.93010623430368, 
+                "long": 12.454971738845616 
+            },
+            "description": "Meet at Hotel Butterfly and talk in front of a good bottle of wine",
+            "participants": [
+                "Lelli12"
+            ],
+            "isPassed": false,
+            "img": "assets/eventsImages/nightlife3.jpg"
         }
     ]
 }

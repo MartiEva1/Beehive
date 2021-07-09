@@ -1,95 +1,70 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-back-button text="" slot="start" defaultHref="tabs/event-list" mode="ios" [style.padding-left]="'10px'"></ion-back-button>
+  <ion-toolbar #toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" slot="start" defaultHref="tabs/event-list" mode="ios" [style.padding-left]="'10px'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ event?.title }}</ion-title>
   </ion-toolbar>
-  
-  <img src={{event?.img}}>
 </ion-header>
 
-<ion-content>
-  <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <h1>{{ event?.title }}</h1>
-    </ion-row>
-    <ion-row>
-      <ion-card>
-        <ion-card-content>
-          <ion-row>
-            <ion-item lines="none">
-              <ion-label>
-                Description:
-              </ion-label>
-            </ion-item>
-          </ion-row>
-          
-          <ion-row>
-            <ion-item lines="none">
-              <ion-label class="ion-text-wrap">
-                {{ event?.description }}
-              </ion-label>
-            </ion-item>
-          </ion-row>
-          <ion-row>
-            <ion-list>
-              <ion-item class="dateHour">
-                <ion-icon name="calendar-outline" slot="start" size="small"></ion-icon>
-                <ion-label>{{ printDate(event.date) }}</ion-label>
-              </ion-item>
-              <ion-item class="dateHour">
-                <ion-icon name="time-outline" slot="start" size="small"></ion-icon>
-                <ion-label>{{ printHour(event.hour) }}</ion-label>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-icon name="pin" slot="start" size="small"></ion-icon>
-                <ion-label  class="ion-text-wrap">{{ printPlace(event.place.address) }}</ion-label>
-              </ion-item>
-            </ion-list>
-          </ion-row>
+<ion-content [fullscreen]="true" scrollEvents="true" [appFadeHeader]="toolbar" appParallaxHeader>
+  <div class="parallax-image" [style.background-image]="'url('+event?.img+')'"></div>
 
-          <ion-row class="ion-justify-content-center">
-            <ion-item lines="none">
-              Participants({{ getParticipants(event?.participants) }}):  
-            </ion-item> 
-           
-            <ion-list class="infoList">
-              <ion-item *ngFor="let p of event.participants">
-                <ion-avatar slot="start">
-                  
-                  <img *ngIf="p === 'RickyB'" src='../../../assets/users/uomo1.jpg'>
-                  <img *ngIf="p === 'admin'" src='../../../assets/users/uomo2.jpg'>
-                  <img *ngIf="p === 'Lelli12'" src='../../../assets/users/donna1.jpg'>
-                  <img *ngIf="p === 'MartyE'" src='../../../assets/users/donna2.jpg'>
-                  <img *ngIf="p === 'SilviaB'" src='../../../assets/users/donna3.jpg'>
-                                  
-                </ion-avatar>
-                <ion-label [style.font-size]="'16px'">
-                  {{ p }}
-                </ion-label>
+  <div class="main">
+    <ion-card id="contenuto">
+      <ion-card-header>
+        <ion-card-subtitle>{{ event?.category }}</ion-card-subtitle>
+        <ion-card-title mode="ios">{{ event?.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text color="dark">DESCRIPTION: </ion-text>{{ event?.description }}
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-list class="infoList">
+                <ion-item lines="none" class="dateHour">
+                  <ion-icon name="calendar-outline" slot="start" size="small"></ion-icon>
+                  <ion-label>{{ printDate(event.date) }}</ion-label>
                 </ion-item>
-            </ion-list>
-            <!--
-              <ion-virtual-scroll [items]="event.participants" class="infoList" approxItemHeight="70px">
-              <ion-item *virtualItem="let p">
-                <ion-thumbnail>
-
-                </ion-thumbnail>
-                <ion-label>
-                  {{ p }}
-                </ion-label>
-              </ion-item>
-              
-            </ion-virtual-scroll>
-            -->
-            
+                <ion-item lines="none" class="dateHour">
+                  <ion-icon name="time-outline" slot="start" size="small"></ion-icon>
+                  <ion-label>{{ printHour(event.hour) }}</ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-icon name="pin" slot="start" size="small"></ion-icon>
+                  <ion-label  class="ion-text-wrap">{{ printPlace(event.place.address) }}</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-col>
           </ion-row>
-          <ion-row class="ion-justify-content-center ion-align-items-center" [style.margin-top]="'8px'">
-            <img src="{{ loadMap(event.place.lat, event.place.long) }}">
-          </ion-row>
+        </ion-grid>
 
-        </ion-card-content>
-      </ion-card>
-    </ion-row>
-    
-    
-  </ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-list-header>
+            Participants: ( {{ getParticipants(event?.participants) }} )
+          </ion-list-header>
+          <ion-list class="infoList">
+            <ion-item *ngFor="let p of event.participants">
+              <ion-avatar slot="start">
+                
+                <img *ngIf="p === 'RickyB'" src='../../../assets/users/uomo1.jpg'>
+                <img *ngIf="p === 'admin'" src='../../../assets/users/uomo2.jpg'>
+                <img *ngIf="p === 'Lelli12'" src='../../../assets/users/donna1.jpg'>
+                <img *ngIf="p === 'MartyE'" src='../../../assets/users/donna2.jpg'>
+                <img *ngIf="p === 'SilviaB'" src='../../../assets/users/donna3.jpg'>
+                                
+              </ion-avatar>
+              <ion-label [style.font-size]="'16px'">
+                {{ p }}
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-row>
+        <ion-row class="ion-justify-content-center ion-align-items-center ion-margin-top" >
+          <img src="{{ loadMap(event.place.lat, event.place.long) }}">
+        </ion-row>  
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

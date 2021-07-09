@@ -72,6 +72,10 @@ const routes: Routes = [
     path: 'tutorial',
     loadChildren: () => import('./pages/tutorial/tutorial.module').then( m => m.TutorialPageModule)
   },
+  {
+    path: 'edit-event',
+    loadChildren: () => import('./pages/edit-event/edit-event.module').then( m => m.EditEventPageModule)
+  },
 ];
 @NgModule({
   imports: [

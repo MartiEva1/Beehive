@@ -1,0 +1,43 @@
+ion-content {
+    --background: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    ion-content {
+        --background: var(--ion-background-color);
+    }
+}
+
+.input-group {
+    padding: 10px;
+    // background: var(--ion-color-light);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.errors {
+    text-align: left;
+    font-size: small;
+    color:#eb445a;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.image {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+
+    img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+    }
+}
+
+.commandButton {
+    --border-radius: 50px;
+    --box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}

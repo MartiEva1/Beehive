@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfilePage } from './profile.page';
 
 import { ProfilePageRoutingModule } from './profile-routing.module';
-import { SharedComponentsModule } from 'src/app/components/shared-components.module';
 
 @NgModule({
   imports: [
@@ -15,8 +14,7 @@ import { SharedComponentsModule } from 'src/app/components/shared-components.mod
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([{ path: '', component: ProfilePage }]),
-    ProfilePageRoutingModule,
-    SharedComponentsModule
+    ProfilePageRoutingModule
   ],
   declarations: [ProfilePage]
 })

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ParticipantsPageRoutingModule } from './participants-routing.module';
 
 import { ParticipantsPage } from './participants.page';
+import { SharedDirectivesModule } from 'src/app/directives/shared-directives.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ParticipantsPageRoutingModule
+    ParticipantsPageRoutingModule,
+    SharedDirectivesModule,
   ],
   declarations: [ParticipantsPage]
 })

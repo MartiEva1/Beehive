@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import eventsData from '../../../assets/data/events.json';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
+import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -12,26 +14,29 @@ import { Observable } from 'rxjs';
   styleUrls: ['./participants.page.scss'],
 })
 export class ParticipantsPage implements OnInit {
+  
   event_id: any;
   currentUser = '';
   event: any;
   mapboxToken = '';
   
-
   constructor(
     private authServ: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private serv: ApiService,
+    private alertCtrl: AlertController,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
     this.mapboxToken = environment.mapbox.accessToken;
-    this.currentUser= this.authServ.token;
-    
     this.event_id = this.route.snapshot.paramMap.get('id');
-
-    this.event = eventsData.events.find(item => item.id == this.event_id);
-    
+    this.event = this.serv.getEventById(this.event_id);
+    this.currentUser= this.authServ.token;
   }
+
   // return number of participants to the event
   getParticipants(participants: any): Number {
     return participants?.length;

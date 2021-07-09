@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import eventsData from '../../../assets/data/events.json';
 import { ApiService, Event } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, Platform, ToastController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
+import { EditEventPage } from '../edit-event/edit-event.page';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-event-list',
@@ -12,8 +14,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./event-list.page.scss']
 })
 export class EventListPage implements OnInit {
-  //events = [...eventsData.events];
-  events = eventsData.events;
+  
   selectedEvents: Array<Event>;
   myEvents: Array<Event>;
   visualizedEvents: Array<Event>;
@@ -27,30 +28,33 @@ export class EventListPage implements OnInit {
     private authServ: AuthService,
     private alertCtrl: AlertController,
     private navCtrl: NavController,
-    private platform: Platform
+    private platform: Platform,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
+    private modalCtrl: ModalController,
   ) { }
   
-  ngOnInit(): void {
+  ngOnInit() {
     this.currentUser = this.authServ.token;
     
-    this.selectedEvents = this.events.filter(event => {
-      return (event.participants.includes(this.currentUser)) && (event.username !== this.currentUser); 
-    });
-    this.myEvents = this.events.filter(event => {
-      return event.username === this.currentUser; 
-    });
-    if(this.allEvents){
+    this.selectedEvents = this.serv.getBookedEvents(this.currentUser);
+    this.myEvents = this.serv.getCreatedEvents(this.currentUser);
+    
+    if(this.allEvents)
+    {
       this.visualizedEvents = this.selectedEvents;
     }
-    else{
+    else
+    {
       this.visualizedEvents = this.myEvents;
     }
-    //console.log(this.events);
-    //console.log(this.currentUser);
-    //console.log(this.selectedEvents);
-    //console.log(this.myEvents);
   }
-  
+
+  ionViewWillEnter() {
+    this.selectedEvents = this.serv.getBookedEvents(this.currentUser);
+    this.myEvents = this.serv.getCreatedEvents(this.currentUser);
+  }
+
   // return number of participants to the event
   getParticipants(participants: any): Number {
     return participants.length;
@@ -74,45 +78,39 @@ export class EventListPage implements OnInit {
   // which current user participates
   segmentChanged(event: any){
     this.allEvents = !this.allEvents;
-    if(this.allEvents){
+    if(this.allEvents)
+    {
       this.buttonLabel = "Leave";
     }
-    else{
+    else
+    {
       this.buttonLabel = "Delete";
     }
   }
 
   // triggered by leave button
-  leaveEvent(eventId: number){
-    if(this.allEvents){
+  removeEvent(eventId: number) {
+    if(this.allEvents)
+    {
       this.alertCtrl.create({
         header: "Are you sure?",
         message: "You will leave the event and the relative chat",
-        buttons: [{
-          text: "Cancel",
-          role: "cancel"
-        },{
-          text: "Leave",
-          handler: () => {
-            
-            this.selectedEvents = this.selectedEvents.filter(event => {
-              return event.id != eventId;
-            });
-            for(let el in this.events){
-              if(this.events[el].id == eventId){
-                this.events[el].participants = this.events[el].participants.filter(p => {
-                  return p !== this.currentUser; 
-                })
-              }
-            }
-            this.visualizedEvents = this.selectedEvents;
+        buttons: [
+          {
+            text: "Cancel",
+            role: "cancel"
+          },
+          {
+            text: "Leave",
+            handler: () => this.leaveEvent(eventId)
           }
-        }]
+        ]
       }).then(alertEl => {
         alertEl.present();
       });
     }
-    else{
+    else
+    {
       this.alertCtrl.create({
         header: "Are you sure?",
         message: "You will delete the event and other participants will be notified about the deletion",
@@ -121,41 +119,83 @@ export class EventListPage implements OnInit {
           role: "cancel"
         },{
           text: "Delete",
-          handler: () => {
-            
-            this.myEvents = this.myEvents.filter(event => {
-              return event.id != eventId;
-            });
-            for(let el in this.events){
-              if(this.events[el].id == eventId){
-                this.events[el].participants = [];
-                this.events[el].username = '';
-              }
-            }
-            this.events = this.events.filter(event => {
-              return event.id != eventId;
-            });
-            
-            this.visualizedEvents = this.myEvents;
-            this.serv.deleteEvent(eventId);
-            //console.log(this.events);
-          }
+          handler: () => this.deleteEvent(eventId)
         }]
       }).then(alertEl => {
         alertEl.present();
       });
     }
   }
-  getEvents(){
-    if(this.allEvents){
+  
+  async leaveEvent(eventId) {
+    const loading = await this.loadingCtrl.create({
+      message: "Loading..."
+    });
+    await loading.present();
+
+    this.serv.leaveEvent(eventId, this.currentUser);
+    
+    this.selectedEvents = this.serv.getBookedEvents(this.currentUser);
+
+    loading.dismiss();
+
+    const toast = await this.toastCtrl.create({
+      header: "Success",
+      message: "You have left the event successfully",
+      duration: 2000,
+      color: "dark"
+    });
+    await toast.present();
+  }
+
+  async deleteEvent(eventId) {
+    const loading = await this.loadingCtrl.create({
+      message: "Loading..."
+    });
+    await loading.present();
+
+    this.serv.deleteEvent(eventId);
+    
+    this.myEvents = this.serv.getCreatedEvents(this.currentUser);
+
+    loading.dismiss();
+
+    const toast = await this.toastCtrl.create({
+      header: "Success",
+      message: "Event deleted with success",
+      duration: 2000,
+      color: "dark"
+    });
+    await toast.present();
+  }
+
+  async openEditEvent(eventId) {
+    const modal = await this.modalCtrl.create({
+      component: EditEventPage,
+      componentProps: {
+        eventId: eventId
+      }
+    });
+
+    modal.onDidDismiss().then(() => {
+      this.myEvents = this.serv.getCreatedEvents(this.currentUser);
+    });
+
+    return await modal.present();
+  } 
+
+  getEvents() {
+    if(this.allEvents)
+    {
       this.visualizedEvents = this.selectedEvents;
     }
-    else{
+    else
+    {
       this.visualizedEvents = this.myEvents;
     }
     return this.visualizedEvents;
   }
-  openParticipants(event_id: number){
+  openParticipants(event_id: number) {
     this.navCtrl.navigateForward(['/participants', event_id]);
   }
 
