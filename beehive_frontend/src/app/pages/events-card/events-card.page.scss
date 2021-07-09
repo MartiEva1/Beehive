@@ -70,6 +70,13 @@ ion-card-content {
     }
 }
 
+.otherCards {
+    z-index: 2;
+}
+.lastCard {
+    z-index: 1;
+}
+
 .commandButton {
     height: 70px;
     width: 70px;

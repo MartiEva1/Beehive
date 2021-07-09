@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="/tabs/home" color="secondary"></ion-back-button>
     </ion-buttons>
     <ion-title *ngIf="isAndroid()" class="ion-text-center">{{ title }}</ion-title>
-    <ion-buttons *ngIf="isAndroid()" slot="end">
+    <ion-buttons *ngIf="isAndroid()" slot="end" (click)="openTutorial()">
       <ion-button>
         <ion-icon name="help-circle-outline" slot="icon-only"></ion-icon>
       </ion-button>
@@ -35,7 +35,7 @@
       </ion-button>
     </div>
     <div class="cardsWrapper">
-      <ion-card *ngFor="let event of events" #cardEvents id="{{ event.id }}" class="cardEvents">
+      <ion-card *ngFor="let event of events" #cardEvents id="{{ event.id }}" class="cardEvents otherCards">
         <img *ngIf="event.img" src="{{event.img}}" class="imgHeader">
         <ion-card-header class="ion-no-padding" [style.padding]="'8px 0px'">
           <ion-card-title>
@@ -83,7 +83,7 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-card *ngIf="!events?.length" class="cardEvents ion-padding ion-justify-content-center ion-align-items-center">
+      <ion-card class="cardEvents lastCard ion-padding ion-justify-content-center ion-align-items-center">
         <img src="../../../assets/images/not_found.png" [style.height]="'150px'">
         <p [style.font-size]="'20px'">
           <b>OH NO!</b>
