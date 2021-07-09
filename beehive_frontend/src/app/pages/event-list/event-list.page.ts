@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import eventsData from '../../../assets/data/events.json';
 import { ApiService, Event } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -26,7 +26,8 @@ export class EventListPage implements OnInit {
     private serv: ApiService, 
     private authServ: AuthService,
     private alertCtrl: AlertController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private platform: Platform
   ) { }
   
   ngOnInit(): void {
@@ -156,5 +157,9 @@ export class EventListPage implements OnInit {
   }
   openParticipants(event_id: number){
     this.navCtrl.navigateForward(['/participants', event_id]);
+  }
+
+  isAndroid(): Boolean {
+    return this.platform.is('android');
   }
 }

@@ -1,0 +1,21 @@
+ion-content {
+    --background: var(--ion-color-light) !important;
+}
+
+.imgProfile  {
+    width: 100%;
+
+    img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 5px 12px 0 rgb(0 0 0 / 19%);
+    }
+}
+
+.wrapperInfo {
+    background-color: white;
+    text-align: center;
+    margin-top: 20px;
+}

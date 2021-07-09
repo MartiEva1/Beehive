@@ -1,0 +1,63 @@
+<ion-content>
+  <ion-slides pager="true">
+ 
+    <!-- Slide 1 -->
+    <ion-slide [style.background-color]="'var(--ion-color-secondary)'">
+      <ion-text>
+        <img src="../../../assets/logo/honey.png" [style.height]="'150px'">
+        <h1>Hey there, welcome to <b>Beehive</b>!</h1>
+        <p class="ion-padding">
+          Beehive is the easiest way to speed up the creation of a network of friends. <br>
+          It's a way of meeting new people and a where to keep doing it!
+        </p>
+        <ion-button (click)="next()" color="dark">Next</ion-button>
+      </ion-text>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-text>
+        <img src="../../../assets/intro/events.png" [style.height]="'200px'">
+        <h1>Events<br> to be experienced</h1>
+        <p class="ion-padding">
+          Here you will find a lot of Events you can join and you will live unmissable Experiences.
+        </p>
+        <ion-button (click)="next()" color="dark">Next</ion-button>
+      </ion-text>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-text>
+        <img src="../../../assets/intro/swipes.png" [style.height]="'200px'">
+        <h1>It is so easy to use:</h1>
+        <p class="ion-padding">
+          The events are presented as cards, and you have to swipe right to participate, swipe left to refuse and swipe up if you are undecided.
+        </p>
+        <ion-button (click)="next()" color="dark">Next</ion-button>
+      </ion-text>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-text>
+        <img src="../../../assets/intro/chat.png" [style.height]="'200px'">
+        <h1>Stay in touch with other participants:</h1>
+        <p class="ion-padding">
+          A group chat will be created for each event you attend, to allow you to organize yourself with others.
+        </p>
+        <ion-button (click)="next()" color="dark">Next</ion-button>
+      </ion-text>
+    </ion-slide>
+ 
+    <!-- Slide 2 -->
+    <ion-slide>
+      <ion-text>
+        <img src="../../../assets/intro/ready.png" [style.height]="'200px'">
+        <h1>So ... Are you ready?</h1>
+        <p class="ion-padding">
+          Start looking for the events that suit you best, and dive into the world of Beehive!
+        </p>
+        <ion-button (click)="start()" color="dark">Start</ion-button>
+      </ion-text>
+    </ion-slide>
+ 
+  </ion-slides>
+</ion-content>

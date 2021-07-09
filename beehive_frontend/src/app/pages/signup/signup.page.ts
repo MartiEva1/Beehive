@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -50,6 +50,18 @@ export class SignupPage implements OnInit {
     });
   }
 
+  async showAlert() {
+    const alert = await this.alertCtrl.create({
+      header: "Success!",
+      message: 'You are officially a new Beehive member. WELCOME AND ENJOY!',
+    });
+    await alert.present();
+
+    setTimeout(() => {
+      alert.dismiss();
+    }, 3000);
+  }
+
   async signIn() {
     const loading = await this.loadingCtrl.create({
       message: "Loading..."
@@ -58,6 +70,7 @@ export class SignupPage implements OnInit {
     
     this.authServ.signin(this.user.value).subscribe(async (res) => {
       await loading.dismiss();
+      this.showAlert();
       this.router.navigateByUrl('/login', { replaceUrl: true });
     }, async (error) => {
       await loading.dismiss();

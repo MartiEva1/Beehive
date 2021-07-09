@@ -29,3 +29,15 @@
     font-family: "AppFont";
     src: url("assets/Font/Montserrat/Montserrat-Regular.ttf");
 }
+
+ion-content {
+    --background: var(--ion-color-light);
+}
+
+.transparent-modal {
+    --background: #0000008e;
+   
+    ion-content {
+      --background: transparent;
+    }
+}

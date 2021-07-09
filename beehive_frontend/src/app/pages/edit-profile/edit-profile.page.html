@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" (click)="dismiss()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Edit Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding ion-justify-content-center ion-align-items-center wrapperInfo">
+    <div class="imgProfile">
+      <img *ngIf="!getImage()" src="assets/images/profilo.png" />
+      <img *ngIf="getImage()" src="{{ getImage() }}" />
+    </div>
+    <ion-button color="secondary" fill="clear" (click)="addImage()">
+      Choose a new image 
+    </ion-button>
+
+    <form [formGroup]="user">
+      <ion-item>
+        <ion-input type="text" placeholder="Insert first name" formControlName="first_name"></ion-input>
+      </ion-item>
+      <div *ngIf="(first_name.dirty || first_name.touched) && first_name.errors" class="errors">
+        <ion-icon name="alert" [style.padding-right]="'3px'"></ion-icon>
+        <span *ngIf="first_name.errors?.required">The first name is required</span>
+      </div>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Insert last name" formControlName="last_name"></ion-input>
+      </ion-item>
+      <div *ngIf="(last_name.dirty || last_name.touched) && last_name.errors" class="errors">
+        <ion-icon name="alert" [style.padding-right]="'3px'"></ion-icon>
+        <span *ngIf="last_name.errors?.required">The last name is required</span>
+      </div>
+
+      <ion-item>
+        <ion-datetime formControlName="birth" placeholder="Select the date of birth"></ion-datetime>
+      </ion-item>
+      <div *ngIf="(birth.dirty || birth.touched) && birth.errors" class="errors">
+        <ion-icon name="alert" [style.padding-right]="'3px'"></ion-icon>
+        <span *ngIf="birth.errors?.required">The last name is required</span>
+      </div>
+
+      <input type="file" hidden="true" #imgFile (change)="showImage($event)">
+    </form>
+  </div>
+
+  <div class="ion-margin-top ion-justify-content-center ion-align-items-center" [style.background-color]="'white'">
+    <ion-button color="success" expand="block" fill="clear" (click)="save()">
+      SAVE
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-margin-bottom ion-justify-content-center ion-align-items-center">
+  <ion-button color="danger" fill="clear" expand="block" (click)="deleteAccount()">
+    Delete your account
+  </ion-button>
+</ion-footer>
+

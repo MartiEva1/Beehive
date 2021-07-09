@@ -17,10 +17,10 @@
         <ion-input type="text" formControlName="title" placeholder="Insert the title"></ion-input>
       </ion-item>
 
-      <!-- <div *ngIf="(title.dirty || title.touched) && title.errors" class="errors">
+      <div *ngIf="(title.dirty || title.touched) && title.errors" class="errors">
         <ion-icon name="alert" style="padding-right: 3px;"></ion-icon>
         <span *ngIf="title.errors?.required">The title is required</span>
-      </div> -->
+      </div>
 
       <ion-item>
         <ion-label position="stacked">Category:</ion-label>
@@ -34,50 +34,72 @@
         </ion-select>
       </ion-item>
 
-      <!-- <div *ngIf="category.errors" class="errors">
+      <div *ngIf="(category.dirty || category.touched) && category.errors" class="errors">
         <ion-icon name="alert" style="padding-right: 3px;"></ion-icon>
         <span *ngIf="category.errors?.required">The category is required</span>
-      </div> -->
+      </div>
 
       <ion-item>
         <ion-label position="stacked">Description</ion-label>
         <ion-textarea formControlName="description" clearOnEdit="true" placeholder="Add a briefly description of the event"></ion-textarea>
       </ion-item>
 
+      <div *ngIf="(description.dirty || description.touched) && description.errors" class="errors">
+        <ion-icon name="alert" style="padding-right: 3px;"></ion-icon>
+        <span *ngIf="description.errors?.required">A short description is required</span>
+      </div>
+
       <ion-item>
         <ion-label position="stacked">Event date:</ion-label>
         <ion-datetime formControlName="date" placeholder="Select the event date"></ion-datetime>
       </ion-item>
 
-      <!-- <div *ngIf="date.errors" class="errors">
+      <div *ngIf="(date.dirty || date.touched) && date.errors" class="errors">
         <ion-icon name="alert" style="padding-right: 3px;"></ion-icon>
         <span *ngIf="date.errors?.required">The date is required</span>
-      </div> -->
+      </div>
 
       <ion-item>
         <ion-label position="stacked">Select the event hour:</ion-label>
         <ion-datetime formControlName="hour" display-format="H:mm" picker-format="H:mm" placeholder="Select the event hour"></ion-datetime>
       </ion-item>
 
-      <!-- <div *ngIf="hour.errors" class="errors">
+      <div *ngIf="(hour.dirty || hour.touched) && hour.errors" class="errors">
         <ion-icon name="alert" style="padding-right: 3px;"></ion-icon>
         <span *ngIf="hour.errors?.required">The hour is required</span>
-      </div> -->
+      </div>
 
       <ion-item>
         <ion-label position="stacked">Address:</ion-label>
         <ion-input type="text" formControlName="address" placeholder="Insert the event address"></ion-input>
       </ion-item>
 
-      <!-- <div *ngIf="(address.dirty || address.touched) && address.errors" class="errors">
+      <div *ngIf="(address.dirty || address.touched) && address.errors" class="errors">
         <ion-icon name="alert" style="padding-right: 3px;"></ion-icon>
         <span *ngIf="address.errors?.required">The address is required</span>
-      </div> -->
+      </div>
+
+      <ion-grid>
+        <ion-row class="ion-padding ion-justify-content-center ion-align-items-center">
+          <ion-col>
+            <ion-button color="tertiary" class="commandButton" (click)="addImage()">
+              Add an image
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <div class="image">
+              <img src="{{ setImage() }}">
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
 
     <p align="center">
-      <ion-button type="reset" fill="clear" color="danger">RESET</ion-button>
-      <ion-button type="submit" color="success" [disabled]="!eventInfo.valid">PUBLISH</ion-button>
+      <ion-button type="reset" fill="clear" color="danger"  class="commandButton">RESET</ion-button>
+      <ion-button type="submit" color="success" [disabled]="!eventInfo.valid"  class="commandButton">PUBLISH</ion-button>
     </p>
+
+    <input type="file" hidden="true" #imgFile (change)="showImage($event)">
   </form>
 </ion-content>

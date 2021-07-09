@@ -1,31 +1,42 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons *ngIf="isAndroid()" slot="start">
       <ion-back-button defaultHref="/tabs/home" color="secondary"></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">{{ title }}</ion-title>
+    <ion-title *ngIf="isAndroid()" class="ion-text-center">{{ title }}</ion-title>
+    <ion-buttons *ngIf="isAndroid()" slot="end">
+      <ion-button>
+        <ion-icon name="help-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar [style.padding-bottom]="'10px'">
       <ion-buttons slot="start">
         <ion-back-button defaultHref="/tabs/home" text="" color="secondary" [style.padding-left]="'5px'"></ion-back-button>
       </ion-buttons>
-      <ion-title class="ion-text-center" size="large">{{ title }}</ion-title>
+      <ion-title class="ion-text-center ion-no-padding" size="large">{{ title }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="openTutorial()">
+          <ion-icon name="help-circle-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
   <div class="wrapper">
     <div class="filterButtonWrapper">
-      <ion-button class="filterButton" fill="outline">
+      <ion-button class="filterButton" fill="outline" (click)="openFilters()">
         <ion-icon slot="start" name="options-outline"></ion-icon>
         Filters
+        <ion-badge *ngIf="ifFilters()" color="secondary" [style.margin-left]="'10px'" slot="end">{{ filtersCount | async }}</ion-badge>
       </ion-button>
     </div>
     <div class="cardsWrapper">
       <ion-card *ngFor="let event of events" #cardEvents id="{{ event.id }}" class="cardEvents">
-        <img src="{{event.img}}" class="imgHeader">
+        <img *ngIf="event.img" src="{{event.img}}" class="imgHeader">
         <ion-card-header class="ion-no-padding" [style.padding]="'8px 0px'">
           <ion-card-title>
             {{ event.title }}
@@ -84,17 +95,17 @@
     <div class="commandButtonsWrapper">
       <ion-grid class="ion-no-padding">
         <ion-col class="commandButtonsCol">
-          <ion-button class="commandButton ion-no-margin" fill="clear" [disabled]="!events?.length">
+          <ion-button class="commandButton ion-no-margin" fill="clear" [disabled]="!events?.length" (click)="refuse()">
             <ion-icon name="close-outline" color="danger" size="large"></ion-icon>
           </ion-button>
         </ion-col>
         <ion-col class="commandButtonsCol">
-          <ion-button class="commandButton ion-no-margin" fill="clear" [disabled]="!events?.length">
+          <ion-button class="commandButton ion-no-margin" fill="clear" [disabled]="!events?.length" (click)="postpone()">
             <ion-icon name="timer-outline" color="warning" size="large"></ion-icon>
           </ion-button>
         </ion-col>
         <ion-col class="commandButtonsCol">
-          <ion-button class="commandButton ion-no-margin" fill="clear" [disabled]="!events?.length">
+          <ion-button class="commandButton ion-no-margin" fill="clear" [disabled]="!events?.length" (click)="join()">
             <ion-icon name="checkmark-outline" color="success" size="large"></ion-icon>
           </ion-button>
         </ion-col>

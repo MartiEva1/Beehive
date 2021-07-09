@@ -1,0 +1,52 @@
+<ion-content>
+  <ion-grid (click)="dismissModal()" class="conainer">
+    <ion-row class="ion-justify-content-center" [style.text-align]="'center'">
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <div class="swipe-up-icon">
+            <ion-icon name="timer-outline" size="large" class="positionCenter"></ion-icon>
+          </div>
+        </ion-row>
+        <ion-row class="ion-justify-content-center ion-padding">
+          <div [style.color]="'var(--ion-color-warning)'" [style.font-size]="'19px'">
+            Swipe up <br> to postpone<br>
+            <ion-icon name="arrow-up-outline" color="warning" size="large"></ion-icon>
+          </div>
+        </ion-row>
+      </ion-grid>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-align-items-center" [style.height]="'400px'">
+      <ion-col>
+        <ion-grid>
+          <ion-row class="ion-justify-content-start ion-padding-left">
+            <div class="swipe-left-icon">
+              <ion-icon name="close-outline" size="large" class="positionCenter"></ion-icon>
+            </div>
+          </ion-row>
+          <ion-row class="ion-justify-content-center ion-padding">
+            <div [style.color]="'var(--ion-color-danger)'" [style.font-size]="'19px'" [style.text-align]="'center'">
+              Swipe left <br> to refuse<br>
+              <ion-icon name="return-up-back-outline" color="danger" size="large"></ion-icon>
+            </div>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col>
+        <ion-grid>
+          <ion-row class="ion-justify-content-end ion-padding-right">
+            <div class="swipe-right-icon">
+              <ion-icon name="checkmark-outline" size="large" class="positionCenter"></ion-icon>
+            </div>
+          </ion-row>
+          <ion-row class="ion-justify-content-center ion-padding">
+            <div [style.color]="'var(--ion-color-success)'" [style.font-size]="'19px'" [style.text-align]="'center'">
+              Swipe right <br> to participate<br>
+              <ion-icon name="return-up-forward-outline" color="success" size="large"></ion-icon>
+            </div>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

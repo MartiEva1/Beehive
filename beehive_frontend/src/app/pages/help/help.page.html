@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Help</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar padding>
+    <ion-title color="secondary" [style.font-size]="'20px'">
+      Table of contents
+    </ion-title>
+  </ion-toolbar>
+  
+  <ion-list>
+    <ion-list-header>
+      Index
+    </ion-list-header>
+    <ion-item button (click)="scrollTo('overview')">
+      <ion-label>
+        <ion-text>
+          1. Overview
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="openTutorial()">
+      <ion-label>
+        <ion-text>
+          2.	Get started
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="scrollTo('profile')">
+      <ion-label>
+        <ion-text>
+          3.	Your Profile 
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="scrollTo('partecipate')">
+      <ion-label>
+        <ion-text>
+          4.	Participate to an Event
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="scrollTo('add')">
+      <ion-label>
+        <ion-text>
+          5.	Add an event
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="scrollTo('leave-delete')">
+      <ion-label>
+        <ion-text>
+          6.	Leave or Delete an event
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="scrollTo('edit')">
+      <ion-label>
+        <ion-text>
+          7.	Edit an Event
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="scrollTo('chat')">
+      <ion-label>
+        <ion-text>
+          8.	Access to a Group Chat
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item-divider></ion-item-divider>
+    
+    <ion-list-header id="overview">
+      Overview
+    </ion-list-header>
+    <ion-item class="ion-padding" lines="none">
+      The main goal of Beehive is to provide an intuitive and easy-to-use application to join and create events. The idea behind the application is to help in meeting new people and live new experiences, it gives the possibility to chat with the other users participating to an event and to keep track of the events that you created or booked.
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-list-header>
+      Get Started
+    </ion-list-header>
+    <ion-button expand="block" color="secondary" (click)="openTutorial()">
+        See the tutorial
+    </ion-button>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-list-header id="profile">
+      Your Profile
+    </ion-list-header>
+    <ion-item class="ion-padding" lines="none">
+      <div>
+        In the Profile page the main information of the user are shown: username, date, profile picture.
+        <ul>
+          <li>Edit Profile Information: Yellow Edit button let you change your name, date of birth and profile picture.</li>
+          <li>Delete your account: Tap the yellow Edit Button and then the Delete your account option is shown in red.</li>
+          <li>Edit Password: shown in the main page of the profile.</li>
+          <li>Log-out: shown in the main page of the profile.</li>
+        </ul>
+      </div>
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-list-header id="partecipate">
+      Participate to an event
+    </ion-list-header>
+    <ion-item class="ion-padding" lines="none">
+      <div>
+        In the home page you can select the preferred category.<br>
+        Then, a card of an event is shown, for each card you can:
+        <ul>
+          <li>Accept the event: swiping right or clicking the green check button.</li>
+          <li>Postpone the decision: swiping up or clicking the yellow clock button.</li>
+          <li>Reject the event: swiping left or clicking the red X button.</li>
+        </ul>
+      </div>
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-list-header id="add">
+      Add an event
+    </ion-list-header>
+    <ion-item class="ion-padding" lines="none">
+      To add an event you have to click the yellow + button in the home page, compile the presented form and press the publish button.<br>
+      Your event will be now in the Event page in “created” session.
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-list-header id="leave-delete">
+      Leave or Delete an event
+    </ion-list-header>
+    <ion-item class="ion-padding" lines="none">
+      <div>
+        If you created an event that you want to Delete:
+        <ul>
+          <li>Go to Event page (from the tap bar)</li>
+          <li>Click on “created” session</li>
+          <li>Click on Delete button of the chosen event</li>
+        </ul>
+
+        If you booked an event that you want to Leave:
+        <ul>
+          <li>Go to Event page (from the tap bar)</li>
+          <li>Click on "booked" session</li>
+          <li>Click on Leave button of the chosen event</li>
+        </ul>
+      </div>
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-list-header id="edit">
+      Edit an event
+    </ion-list-header>
+    <ion-item class="ion-padding" lines="none">
+      <div>
+        If you created an event that you want to Edit:
+        <ul>
+          <li>Go to Event page (from the tap bar)</li>
+          <li>Click on “created” session</li>
+          <li>Click on Edit button of the chosen event</li>
+          <li>Edit the information</li>
+          <li>Click on Save button</li>
+        </ul>
+      </div>
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+
+    <ion-list-header id="chat">
+      Access to a Group Chat
+    </ion-list-header>
+    <ion-item class="ion-padding" lines="none">
+      In the home page press the chat bubbles up right in the page, you will have a list of chats with one chat for each event you booked, you can click on the one you prefer and chat with the participants.
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -40,6 +40,7 @@ ion-card-content {
 
 .filterButton {
     --border-radius: 50px;
+    --background: white;
     height: 30px;
     margin: 15px 0px;
 }
@@ -72,6 +73,7 @@ ion-card-content {
 .commandButton {
     height: 70px;
     width: 70px;
+    --background: white;
     --border-radius: 50%;
     --box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
@@ -100,13 +102,22 @@ ion-card-content {
     min-height: 120px;
     max-height: 150px;
     object-fit: cover;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 @media (prefers-color-scheme: dark) {
     .commandButton {
         height: 70px;
         width: 70px;
+        --background: var(--ion-background-color);
         --border-radius: 50%;
         --box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.2), 0 6px 10px 0 rgba(255, 255, 255, 0.19);
+    }
+    .filterButton {
+        --border-radius: 50px;
+        --background: var(--ion-background-color);
+        height: 30px;
+        margin: 15px 0px;
     }
 }

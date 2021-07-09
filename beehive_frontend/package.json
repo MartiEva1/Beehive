@@ -22,6 +22,7 @@
     "@capacitor/core": "2.4.7",
     "@ionic/angular": "^5.5.2",
     "@ionic/lab": "^3.2.10",
+    "@ionic/pwa-elements": "^3.0.2",
     "ngx-autosize": "^1.8.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

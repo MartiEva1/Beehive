@@ -27,7 +27,7 @@
 
       <ion-button type="submit" expand="block" size="large" mode="ios" [disabled]="!credentials.valid">LOG IN</ion-button>
       <p>
-        <ion-button id="passwordDimenticata" mode="ios" expand="block" fill="clear">Forgot password?</ion-button>
+        <ion-button id="passwordDimenticata" mode="ios" expand="block" fill="clear" (click)="passwordRecovery()">Forgot password?</ion-button>
         <!-- <ion-button id="registrati" expand="block" fill="clear" type="button" color="primary" [routerLink]="['/menu', 'signin']">REGISTRATI</ion-button> -->
         <ion-button id="registrati" mode="ios" expand="block" fill="clear" type="button" color="primary" [routerLink]="['/', 'signup']">Sign up</ion-button>
       </p>

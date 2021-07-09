@@ -57,12 +57,28 @@ export class AuthService {
     return Storage.remove({ key: TOKEN_KEY });
   }
 
-  async getUser(): Promise<Observable<any>> {
+  async getUserWithToken(): Promise<Observable<any>> {
     const token = await Storage.get({ key: TOKEN_KEY });
     return this.http.get(this.url+"user/"+token.value);
   }
 
-  getUserByUserame(username): Observable<any>{
+  getUser(): Observable<any> {
+    return this.http.get(this.url+"user/"+this.token);
+  }
+
+  getUserByUsername(username): Observable<any> {
     return this.http.get(this.url+"user/"+username);
+  }
+
+  updateUser(userID, user): Observable<any> {
+    return this.http.put(this.url+"update?userID="+userID, user);
+  }
+
+  deleteUser(userID): Observable<any> {
+    return this.http.delete(this.url+"delete?userID="+userID);
+  }
+
+  updatePassword(userID, passwords): Observable<any> {
+    return this.http.put(this.url+"updatePassword?userID="+userID, passwords);
   }
 }

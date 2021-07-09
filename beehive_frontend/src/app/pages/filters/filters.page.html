@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>
+      FILTER
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="filters" (ngSubmit)="applyFilters()">
+    <div class="input-group">
+      <ion-list-header>
+        Participants
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="stacked">Minimum number of participants</ion-label>
+        <ion-input type="number" formControlName="numberParticipants"  placeholder="Insert the minimum number of participants"></ion-input>
+      </ion-item>
+
+      <ion-list-header>
+        Distance
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="stacked" class="ion-text-wrap">Maximum distance from the place where the event will take place</ion-label>
+        <ion-select formControlName="distance" ok-text="Ok" cancel-text="Cancel" placeholder="Select the maximum distance">
+          <ion-select-option *ngFor = "let i of counter(4)" [value]="i*5">
+            {{ i*5 }} Km
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-list-header>
+        Range of dates
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="stacked">From date:</ion-label>
+        <ion-datetime formControlName="fromDate" placeholder="Select the start date of the range"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">To date:</ion-label>
+        <ion-datetime formControlName="toDate" placeholder="Select the end date of the range"></ion-datetime>
+      </ion-item>
+    </div>
+
+    <div class="ion-margin-top ion-justify-content-center ion-align-items-center" [style.background-color]="'white'">
+      <ion-button type="submit" color="success" expand="block" fill="clear">
+        APPLY FILTERS
+      </ion-button>
+    </div>
+
+    <div class="ion-margin-top ion-justify-content-center ion-align-items-center" [style.background-color]="'white'">
+      <ion-button type="reset" expand="block" fill="clear" color="danger">
+        RESET
+      </ion-button>
+    </div>
+  </form>
+</ion-content>
+
